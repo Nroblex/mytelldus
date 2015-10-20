@@ -3,7 +3,8 @@ import communication.TelldusInterface;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.Properties;
 
 
 /**
@@ -13,13 +14,17 @@ public class Program {
 
     static Logger iLog = LogManager.getLogger(Program.class);
 
+    private static String logConfigFile = null;
+
     public static void main(String[] args) throws IOException {
 
         System.out.println("Starting");
 
-        String lgFile = "/home/anders/IdeaProjects/mytelldus/config/log4j.xml";
+        parseSettings();
 
-        setupLog4JLogging(lgFile);
+
+
+        setupLog4JLogging(logConfigFile);
 
         iLog.info("Starting...");
 
@@ -33,12 +38,49 @@ public class Program {
 
     }
 
+    private static void parseSettings() {
+
+        Properties properties = new Properties();
+
+        try {
+
+            File f = new File("config/settings.properties");
+            if (!f.exists()){
+                f.createNewFile();
+            }
+
+            InputStream fsIn = new FileInputStream("config/settings.properties");
+            properties.load(fsIn);
+
+            logConfigFile = properties.getProperty("logSettingsPath");
+
+            if (logConfigFile== null) {
+                properties.setProperty("logSettingsPath", "config/log4j.xml");
+                logConfigFile="config/log4j.xml";
+                OutputStream os = new FileOutputStream("config/settings.properties");
+                properties.store(os, "Automatic created configuration file.");
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
     private static void startADevice(int i) throws IOException{
 
         TelldusInterface iface = new TelldusInterface("10.0.1.48", 9998, 9999);
         String name = iface.tdGetName(i);
 
         iface.tdTurnOn(i);
+        //iface.tdDim(i, 100);
+
 
         System.out.println(name);
 
