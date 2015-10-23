@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52764a97-4a0e-42b8-ac79-09b5cbfcad72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/devices/ConfiguredDevices.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/settings.properties" />
+    <list default="true" id="e0032be1-59c6-4cdf-abc7-fa310792ae8e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/settings.properties" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/configdb.db" afterPath="$PROJECT_DIR$/db/configdb.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/devices/ConfiguredDevices.java" afterPath="$PROJECT_DIR$/src/main/java/devices/ConfiguredDevices.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/DBmanager/ConnectionManager.java" afterPath="$PROJECT_DIR$/src/main/java/DBmanager/ConnectionManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/DBmanager/DBManager.java" afterPath="$PROJECT_DIR$/src/main/java/DBmanager/DBManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scheduler/ParseScheduler.java" afterPath="$PROJECT_DIR$/src/main/java/scheduler/ParseScheduler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Program.java" afterPath="$PROJECT_DIR$/src/main/java/Program.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/scheduler/Scheduler.java" afterPath="$PROJECT_DIR$/src/main/java/scheduler/Scheduler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/utils/Util.java" afterPath="$PROJECT_DIR$/src/main/java/utils/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mytelldus.iml" afterPath="$PROJECT_DIR$/mytelldus.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mytelldus.iws" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,22 +36,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2952756">
-              <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log4j.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/log4j.xml">
+      <file leaf-file-name="ParseScheduler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/scheduler/ParseScheduler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="0.5033113">
+              <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#609#633#0" expanded="true" />
+                <element signature="e#733#734#0" expanded="true" />
+                <element signature="e#776#777#0" expanded="true" />
+                <element signature="e#1548#1549#0" expanded="true" />
+                <element signature="e#1607#1608#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,41 +67,55 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/devices/ConfiguredDevices.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/settings.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scheduler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/scheduler/Scheduler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
               <folding>
-                <element signature="e#216#217#0" expanded="true" />
-                <element signature="e#249#250#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-                <element signature="e#412#413#0" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#501#502#0" expanded="true" />
-                <element signature="e#539#540#0" expanded="true" />
-                <element signature="e#571#572#0" expanded="true" />
-                <element signature="e#623#624#0" expanded="true" />
-                <element signature="e#665#666#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#242#243#0" expanded="true" />
+                <element signature="e#275#276#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
+                <element signature="e#371#372#0" expanded="true" />
+                <element signature="e#407#408#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#487#488#0" expanded="true" />
+                <element signature="e#527#528#0" expanded="true" />
+                <element signature="e#831#850#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DBmanager/DBManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1084#1103#0" expanded="true" />
+                <element signature="e#1166#1190#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/utils/Util.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectionManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DBmanager/ConnectionManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,51 +124,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TelldusClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TelldusSocket.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusSocket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TelldusInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="128" column="33" selection-start-line="128" selection-start-column="33" selection-end-line="128" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Protocol.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/communication/Protocol.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="25" />
+              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -153,6 +135,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -168,31 +151,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/messages/BaseMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/messages/Message.java" />
-        <option value="$PROJECT_DIR$/config/log4j.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Protocol/Protocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/communication/TelldusSocket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/communication/Sensor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/TelldusDeviceEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/TelldusEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/TDRawDeviceEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/TDDeviceChangeEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/TDDeviceEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/TDControllerEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/EventFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/communication/SensorValue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/TDSensorEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/events/EventDispatcher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/communication/TelldusClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/communication/Protocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/communication/TelldusInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DBmanager/ConnectionManager.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/scheduler/Scheduler.java" />
-        <option value="$PROJECT_DIR$/config/settings.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/devices/ConfiguredDevice.java" />
-        <option value="$PROJECT_DIR$/src/main/java/devices/ConfiguredDevices.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/Program.java" />
+        <option value="$PROJECT_DIR$/src/main/java/devices/ConfiguredDevices.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DBmanager/DBManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/scheduler/ParseScheduler.java" />
       </list>
     </option>
   </component>
@@ -202,302 +167,30 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
+    <option name="disabledProfiles">
+      <list>
+        <option value="spiderman" />
+      </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="NamedScopeManager">
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="width" value="1922" />
-    <option name="height" value="1055" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>CollectionsScala</id>
-          </State>
-          <State>
-            <id>Abstraction issuesJava</id>
-          </State>
-          <State>
-            <id>Android</id>
-          </State>
-          <State>
-            <id>Android Lint</id>
-          </State>
-          <State>
-            <id>Ant inspections</id>
-          </State>
-          <State>
-            <id>Assignment issuesGroovy</id>
-          </State>
-          <State>
-            <id>Assignment issuesJava</id>
-          </State>
-          <State>
-            <id>Class metricsJava</id>
-          </State>
-          <State>
-            <id>Class structureJava</id>
-          </State>
-          <State>
-            <id>Cloning issuesJava</id>
-          </State>
-          <State>
-            <id>Code maturity issuesJava</id>
-          </State>
-          <State>
-            <id>Code style issuesJava</id>
-          </State>
-          <State>
-            <id>Comparing CollectionsScala</id>
-          </State>
-          <State>
-            <id>Compiler issuesJava</id>
-          </State>
-          <State>
-            <id>Concurrency annotation issuesJava</id>
-          </State>
-          <State>
-            <id>Control FlowGroovy</id>
-          </State>
-          <State>
-            <id>Control flow issuesJava</id>
-          </State>
-          <State>
-            <id>Data flow issuesGroovy</id>
-          </State>
-          <State>
-            <id>Data flow issuesJava</id>
-          </State>
-          <State>
-            <id>Declaration redundancyGroovy</id>
-          </State>
-          <State>
-            <id>Declaration redundancyJava</id>
-          </State>
-          <State>
-            <id>Dependency issuesJava</id>
-          </State>
-          <State>
-            <id>Encapsulation issuesJava</id>
-          </State>
-          <State>
-            <id>Error handlingGroovy</id>
-          </State>
-          <State>
-            <id>Error handlingJava</id>
-          </State>
-          <State>
-            <id>GPath inspectionsGroovy</id>
-          </State>
-          <State>
-            <id>General</id>
-          </State>
-          <State>
-            <id>GeneralJava</id>
-          </State>
-          <State>
-            <id>GeneralScala</id>
-          </State>
-          <State>
-            <id>Gradle</id>
-          </State>
-          <State>
-            <id>Groovy</id>
-          </State>
-          <State>
-            <id>HTML</id>
-          </State>
-          <State>
-            <id>ImportsJava</id>
-          </State>
-          <State>
-            <id>Inheritance issuesJava</id>
-          </State>
-          <State>
-            <id>Initialization issuesJava</id>
-          </State>
-          <State>
-            <id>Internationalization issues</id>
-          </State>
-          <State>
-            <id>Internationalization issuesJava</id>
-          </State>
-          <State>
-            <id>J2ME issuesJava</id>
-          </State>
-          <State>
-            <id>JSON</id>
-          </State>
-          <State>
-            <id>JUnit issues</id>
-          </State>
-          <State>
-            <id>JUnit issuesJava</id>
-          </State>
-          <State>
-            <id>Java</id>
-          </State>
-          <State>
-            <id>Java language level issuesJava</id>
-          </State>
-          <State>
-            <id>Java language level migration aidsJava</id>
-          </State>
-          <State>
-            <id>JavaBeans issuesJava</id>
-          </State>
-          <State>
-            <id>JavaFX</id>
-          </State>
-          <State>
-            <id>Javadoc issuesJava</id>
-          </State>
-          <State>
-            <id>Language Injection</id>
-          </State>
-          <State>
-            <id>Logging issuesJava</id>
-          </State>
-          <State>
-            <id>Manifest</id>
-          </State>
-          <State>
-            <id>Maven</id>
-          </State>
-          <State>
-            <id>Method MetricsGroovy</id>
-          </State>
-          <State>
-            <id>Method metricsJava</id>
-          </State>
-          <State>
-            <id>Method signatureScala</id>
-          </State>
-          <State>
-            <id>Modularization issuesJava</id>
-          </State>
-          <State>
-            <id>Naming ConventionsGroovy</id>
-          </State>
-          <State>
-            <id>Naming conventionsJava</id>
-          </State>
-          <State>
-            <id>Numeric issuesJava</id>
-          </State>
-          <State>
-            <id>Options CollectionsScala</id>
-          </State>
-          <State>
-            <id>Other CollectionsScala</id>
-          </State>
-          <State>
-            <id>OtherGroovy</id>
-          </State>
-          <State>
-            <id>Packaging issuesJava</id>
-          </State>
-          <State>
-            <id>Pattern Validation</id>
-          </State>
-          <State>
-            <id>Performance issuesJava</id>
-          </State>
-          <State>
-            <id>Plugin DevKit</id>
-          </State>
-          <State>
-            <id>Portability issuesJava</id>
-          </State>
-          <State>
-            <id>Potentially confusing code constructsGroovy</id>
-          </State>
-          <State>
-            <id>Probable bugsGradle</id>
-          </State>
-          <State>
-            <id>Probable bugsGroovy</id>
-          </State>
-          <State>
-            <id>Probable bugsJava</id>
-          </State>
-          <State>
-            <id>Properties Files</id>
-          </State>
-          <State>
-            <id>Properties FilesJava</id>
-          </State>
-          <State>
-            <id>RELAX NG</id>
-          </State>
-          <State>
-            <id>Resource management issuesJava</id>
-          </State>
-          <State>
-            <id>Scala</id>
-          </State>
-          <State>
-            <id>ScaladocScala</id>
-          </State>
-          <State>
-            <id>Security issuesJava</id>
-          </State>
-          <State>
-            <id>Serialization issuesJava</id>
-          </State>
-          <State>
-            <id>Simplifications: filter and exists CollectionsScala</id>
-          </State>
-          <State>
-            <id>TestNG</id>
-          </State>
-          <State>
-            <id>Threading issuesGroovy</id>
-          </State>
-          <State>
-            <id>Threading issuesJava</id>
-          </State>
-          <State>
-            <id>UI Form Problems</id>
-          </State>
-          <State>
-            <id>Validity issuesGroovy</id>
-          </State>
-          <State>
-            <id>Verbose or redundant code constructsJava</id>
-          </State>
-          <State>
-            <id>Visibility issuesJava</id>
-          </State>
-          <State>
-            <id>XML</id>
-          </State>
-          <State>
-            <id>XPath</id>
-          </State>
-          <State>
-            <id>XSLT</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Android</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
+    <option name="x" value="-9" />
+    <option name="y" value="-8" />
+    <option name="width" value="1938" />
+    <option name="height" value="1192" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -524,7 +217,6 @@
     <panes>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -556,22 +248,12 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mytelldus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mytelldus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -594,6 +276,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -659,24 +345,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DBmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mytelldus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mytelldus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="FullScreen" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="DBmanager" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -798,38 +517,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -858,22 +545,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="Unnamed" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Program" />
@@ -893,60 +564,44 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Unnamed" />
     </list>
   </component>
-  <component name="SbtLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="52764a97-4a0e-42b8-ac79-09b5cbfcad72" name="Default" comment="" />
-      <created>1445015858410</created>
+      <changelist id="e0032be1-59c6-4cdf-abc7-fa310792ae8e" name="Default" comment="" />
+      <created>1445498238170</created>
       <option name="number" value="Default" />
-      <updated>1445015858410</updated>
+      <updated>1445498238170</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1055" extended-state="6" />
+    <frame x="-9" y="-8" width="1938" height="1192" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1743215" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14635417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39979124" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985783" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-  </component>
-  <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-      <collection />
-    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -954,20 +609,22 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/communication/TelldusClient.java</url>
-          <line>143</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Program.java</url>
+          <line>23</line>
           <properties />
-          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Program.java</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/src/main/java/scheduler/ParseScheduler.java</url>
+          <line>46</line>
           <properties />
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -979,184 +636,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/scheduler/Scheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-          <folding>
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#665#666#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="234" column="81" selection-start-line="234" selection-start-column="81" selection-end-line="234" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="234" column="55" selection-start-line="234" selection-start-column="55" selection-end-line="234" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1164,15 +644,7 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/messages/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="42" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1180,243 +652,89 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.8.2/joda-time-2.8.2.jar!/org/joda/time/DateTime.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/messages/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/Sensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/TelldusEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35522068">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/TDRawDeviceEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38751346">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/TelldusDeviceEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2744887">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/TDDeviceChangeEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50053823">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/TDDeviceEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5166846">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/TDControllerEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5489774">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/EventFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/SensorValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/TDSensorEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20990312">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/events/EventDispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87190527">
-          <caret line="92" column="52" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/apps/jdk1.8.0_60/src.zip!/java/nio/channels/SocketChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="466" column="24" selection-start-line="466" selection-start-column="24" selection-end-line="466" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.34895834">
+          <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/messages/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278957">
-          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/scheduler/Scheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding>
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#665#666#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="128" column="33" selection-start-line="128" selection-start-column="33" selection-end-line="128" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/communication/TelldusClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/settings.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/devices/ConfiguredDevices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#831#850#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DBmanager/ConnectionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Program.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2952756">
-          <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DBmanager/DBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1084#1103#0" expanded="true" />
+            <element signature="e#1166#1190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/scheduler/ParseScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5033113">
+          <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#609#633#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#1548#1549#0" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -1430,6 +748,18 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
           <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
@@ -1440,20 +770,18 @@
           </splitter-proportions>
         </settings>
       </state>
-      <state key="ModuleStructureConfigurable.UI">
+      <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>mytelldus</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
         </settings>
       </state>
-      <state key="ProjectLibrariesConfigurable.UI">
+      <state key="ScopeChooserConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">

@@ -1,7 +1,10 @@
 import communication.Protocol;
 import communication.TelldusInterface;
+import devices.ConfiguredDevices;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
+import scheduler.ParseScheduler;
+import utils.Util;
 
 import java.io.*;
 import java.util.Properties;
@@ -14,62 +17,29 @@ public class Program {
 
     static Logger iLog = LogManager.getLogger(Program.class);
 
-    private static String logConfigFile = null;
+
 
     public static void main(String[] args) throws IOException {
 
         System.out.println("Starting");
 
-        parseSettings();
 
-
-
-        setupLog4JLogging(logConfigFile);
-
+        setupLog4JLogging(Util.getSetting("logSettingsPath", ""));
         iLog.info("Starting...");
 
 
+        new ParseScheduler().run();
+
         //initializeTest();
 
-        startADevice(2);
+        //startADevice(2);
 
 
 
 
     }
 
-    private static void parseSettings() {
 
-        Properties properties = new Properties();
-
-        try {
-
-            File f = new File("config/settings.properties");
-            if (!f.exists()){
-                f.createNewFile();
-            }
-
-            InputStream fsIn = new FileInputStream("config/settings.properties");
-            properties.load(fsIn);
-
-            logConfigFile = properties.getProperty("logSettingsPath");
-
-            if (logConfigFile== null) {
-                properties.setProperty("logSettingsPath", "config/log4j.xml");
-                logConfigFile="config/log4j.xml";
-                OutputStream os = new FileOutputStream("config/settings.properties");
-                properties.store(os, "Automatic created configuration file.");
-            }
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
 
 
