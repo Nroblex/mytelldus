@@ -1,6 +1,7 @@
 package scheduler;
 
 import DBmanager.DBManager;
+import DBmanager.SchemaDevices;
 import devices.ConfiguredDevices;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class ParseScheduler implements Runnable {
 
     Logger iLog = LogManager.getLogger(ParseScheduler.class);
-    private List<Map<Integer, DateTime>> timeMapList = new ArrayList<Map<Integer, DateTime>>();
+    private List<Map<Integer, SchemaDevices>> timeMapList = new ArrayList<Map<Integer, SchemaDevices>>();
     private DBManager dbManager;
     public Boolean doRun = true;
 
@@ -41,14 +42,14 @@ public class ParseScheduler implements Runnable {
             }
         }
 
-
-
         while(doRun){
             System.out.println("Checking devices..");
 
             if (timeMapList.size()>0){
                 for (int n = 0; n<=timeMapList.size(); n++){
-                    timeMapList.get(n).
+
+
+
                 }
             }
 

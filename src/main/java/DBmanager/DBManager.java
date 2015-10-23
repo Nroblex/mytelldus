@@ -39,15 +39,14 @@ public class DBManager implements ConnectionManager{
 
     }
 
-    public List<Map<Integer, DateTime>> getScheduledDevices(){
+    public List<Map<Integer, SchemaDevices>> getScheduledDevices(){
 
-        Map<Integer,DateTime> deviceMap = new HashMap<Integer, DateTime>();
-        List<Map<Integer,DateTime>> mapList = new ArrayList<Map<Integer, DateTime>>();
+        Map<Integer,SchemaDevices> deviceMap = new HashMap<Integer, SchemaDevices>();
+        List<Map<Integer,SchemaDevices>> mapList = new ArrayList<Map<Integer, SchemaDevices>>();
 
         DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
         if (connection == null)
             connect();
-
         try {
             Statement stmt = connection.createStatement();
 
@@ -56,7 +55,7 @@ public class DBManager implements ConnectionManager{
                 deviceMap.put
                         (
                                 rs.getInt("deviceID"),
-                                new DateTime(formatter.parseDateTime(rs.getString("timePoint")))
+                                new SchemaDevices(rs.getString("timePoint"), rs.getInt("action"))
                         );
                 mapList.add(deviceMap);
             }
