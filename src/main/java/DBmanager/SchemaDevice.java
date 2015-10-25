@@ -8,12 +8,20 @@
 public class SchemaDevice {
 
 
+     private Integer ID;
      private Integer deviceID;
      private DateTime timePoint;
      private Integer action;
      private DateTime updatedAt;
 
 
+     public Integer getID() {
+         return ID;
+     }
+
+     public void setID(Integer ID) {
+         this.ID = ID;
+     }
 
      public DateTime getTimePoint() {
          return timePoint;
@@ -32,8 +40,8 @@ public class SchemaDevice {
          this.updatedAt = updatedAt;
      }
 
-     public SchemaDevice(Integer deviceID, DateTime timePoint, Integer action){
-        this.deviceID=deviceID; this.timePoint=timePoint; this.action=action;
+     public SchemaDevice(Integer ID, Integer deviceID, DateTime timePoint, Integer action){
+        this.ID = ID; this.deviceID=deviceID; this.timePoint=timePoint; this.action=action;
     }
 
     public DateTime getDeviceName() {

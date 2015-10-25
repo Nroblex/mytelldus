@@ -45,16 +45,18 @@ public abstract class CommandHandler {
         DateTime configuredTimePoint = device.getTimePoint();
         DateTime lastUpdatedAt = device.getUpdatedAt();
 
-        if (configuredTimePoint.getMinuteOfDay() == DateTime.now().getMinuteOfDay()){
+        if (device.getUpdatedAt() != null) {
 
-            if (device.getUpdatedAt() != null) {
-                int secDif = device.getUpdatedAt().getSecondOfDay() - DateTime.now().getSecondOfDay();
-                if (secDif < 60)
-                    return;
-            }
-
-            ExecuteCommand(device);
+            System.out.println("Last UpdatedTime is : " + device.getUpdatedAt().toLocalTime());
+            int secDif = DateTime.now().getSecondOfDay() - device.getUpdatedAt().getSecondOfDay() ;
+            if (secDif < 30)
+                return;
+        } else {
+            System.out.println("The deviceConfig was never updated!");
         }
+
+        ExecuteCommand(device);
+
 
     }
 }

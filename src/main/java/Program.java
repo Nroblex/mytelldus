@@ -28,11 +28,11 @@ public class Program {
 
 
 
-        //new ParseScheduler().run();
+        new ParseScheduler().run();
 
         //initializeTest();
 
-        startADevice(2);
+        //startADevice(2);
 
 
 
@@ -56,7 +56,7 @@ public class Program {
         String model = iface.tdGetModel(i);
 
 
-        iface.tdTurnOff(i);
+        iface.tdTurnOn(i);
         //iface.tdDim(i, 100);
 
 

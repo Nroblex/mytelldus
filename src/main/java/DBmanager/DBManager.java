@@ -47,7 +47,13 @@ public class DBManager implements ConnectionManager{
                 deviceMap.put
                         (
                                 rs.getInt("deviceID"),
-                                new SchemaDevice(rs.getInt("deviceID"), formatter.parseDateTime(rs.getString("timePoint")), rs.getInt("action"))
+                                new SchemaDevice
+                                        (
+                                            rs.getInt("ID"),
+                                            rs.getInt("deviceID"),
+                                            formatter.parseDateTime(rs.getString("timePoint")),
+                                            rs.getInt("action")
+                                        )
                         );
                 mapList.add(deviceMap);
             }
@@ -61,7 +67,7 @@ public class DBManager implements ConnectionManager{
 
 
     public void UpdateConfiguration(SchemaDevice device) {
-        String sql = "UPDATE timeschema SET updatedAt = ? Where deviceID = ?";
+        String sql = "UPDATE timeschema SET updatedAt = ? Where ID = ?";
 
         if (connection==null)
             connect();
@@ -70,7 +76,7 @@ public class DBManager implements ConnectionManager{
 
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setTimestamp(1, new Timestamp((new Date().getTime())));
-            stmt.setInt(2, device.getDeviceID());
+            stmt.setInt(2, device.getID());
 
             stmt.execute();
 

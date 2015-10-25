@@ -8,6 +8,7 @@ import communication.TelldusInterface;
 import devices.ConfiguredDevice;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,6 @@ public class ParseScheduler extends CommandHandler implements Runnable{
 
     public void run() {
 
-        initTimeMap();
         getConfiguredDevices();
 
         if (configuredDevicesList.size() == 0){
@@ -56,15 +56,24 @@ public class ParseScheduler extends CommandHandler implements Runnable{
 
         while(doRun){
 
+            initTimeMap(); //reparsing database...
+
             for (ConfiguredDevice device : configuredDevicesList){
 
                 for (int n =0; n<=timeMapList.size() -1; n++){
 
                     Map<Integer, SchemaDevice> confDevice = timeMapList.get(n);
+
                     if ( confDevice.containsKey(device.getDeviceId()) ){
 
                         SchemaDevice schemaDevice = confDevice.get(device.getDeviceId());
-                        HandleConfiguredDevice(schemaDevice);
+                        //Har tiden passerat ?
+                        //if (timeHasPassed(schemaDevice.getTimePoint()))
+                            //continue;
+
+                        if (schemaDevice.getTimePoint().getSecondOfDay() == DateTime.now().getSecondOfDay()) {
+                            HandleConfiguredDevice(schemaDevice);
+                        }
 
                     }
 
@@ -74,12 +83,18 @@ public class ParseScheduler extends CommandHandler implements Runnable{
 
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 iLog.error(e);
             }
 
         }
+    }
+
+    private boolean timeHasPassed(DateTime timePoint) {
+        Boolean elapsed = DateTime.now().getSecondOfDay()> timePoint.getSecondOfDay();
+        return DateTime.now().getSecondOfDay()> timePoint.getSecondOfDay();
+
     }
 
     private void getConfiguredDevices() {
