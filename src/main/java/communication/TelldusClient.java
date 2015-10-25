@@ -68,7 +68,6 @@ public class TelldusClient implements Runnable {
      * Main loop for separate Thread. keeps connection to event socket
      * alive and reads events.
      */
-    @Override
     public void run() {
         while (run) {
             if (!events.connect()) {

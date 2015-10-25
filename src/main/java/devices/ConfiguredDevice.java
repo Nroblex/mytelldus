@@ -6,10 +6,16 @@ import java.util.List;
 /**
  * Created by anders on 10/20/15.
  */
-public class ConfiguredDevices {
+public class ConfiguredDevice {
 
     private Integer deviceId;
     private String deviceName;
+
+    public ConfiguredDevice(Integer deviceId, String deviceName){
+        this.deviceId=deviceId; this.deviceName=deviceName;
+    }
+
+    public ConfiguredDevice() {}
 
     public String getDeviceName() {
         return deviceName;
@@ -30,18 +36,18 @@ public class ConfiguredDevices {
 
 
 
-    public static List<ConfiguredDevices> getConfiguredDevices() {
+    public static List<ConfiguredDevice> getConfiguredDevicesMOCK() {
         //Implement this to Telldus Later...
         return mockGetConfiguredDevices();
     }
 
-    private static List<ConfiguredDevices> mockGetConfiguredDevices(){
-        List<ConfiguredDevices> configuredDevices = new ArrayList<ConfiguredDevices>();
-        ConfiguredDevices conf = new ConfiguredDevices();
+    private static List<ConfiguredDevice> mockGetConfiguredDevices(){
+        List<ConfiguredDevice> configuredDevices = new ArrayList<ConfiguredDevice>();
+        ConfiguredDevice conf = new ConfiguredDevice();
         conf.setDeviceId(1);
         conf.setDeviceName("Lampa 1");
 
-        ConfiguredDevices conf1 = new ConfiguredDevices();
+        ConfiguredDevice conf1 = new ConfiguredDevice();
         conf.setDeviceId(2);
         conf.setDeviceName("Lampa 2");
 

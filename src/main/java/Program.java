@@ -1,13 +1,12 @@
+import communication.Initialize;
 import communication.Protocol;
 import communication.TelldusInterface;
-import devices.ConfiguredDevices;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
 import scheduler.ParseScheduler;
 import utils.Util;
 
 import java.io.*;
-import java.util.Properties;
 
 
 /**
@@ -17,7 +16,7 @@ public class Program {
 
     static Logger iLog = LogManager.getLogger(Program.class);
 
-
+    TelldusInterface iface = Initialize.getTelldusInterface();
 
     public static void main(String[] args) throws IOException {
 
@@ -28,11 +27,12 @@ public class Program {
         iLog.info("Starting...");
 
 
-        new ParseScheduler().run();
+
+        //new ParseScheduler().run();
 
         //initializeTest();
 
-        //startADevice(2);
+        startADevice(2);
 
 
 
@@ -48,7 +48,15 @@ public class Program {
         TelldusInterface iface = new TelldusInterface("10.0.1.48", 9998, 9999);
         String name = iface.tdGetName(i);
 
-        iface.tdTurnOn(i);
+
+        String proto = iface.tdGetProtocol(i);
+        Protocol.ControllerType tp = iface.tdController().get(0).getType();
+
+        String namse = iface.tdController().get(0).getName();
+        String model = iface.tdGetModel(i);
+
+
+        iface.tdTurnOff(i);
         //iface.tdDim(i, 100);
 
 

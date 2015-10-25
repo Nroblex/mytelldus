@@ -31,6 +31,10 @@ public class Util {
     }
 
 
+    public static Integer getIntSetting(String key){
+        return Integer.parseInt(getSetting(key, ""));
+    }
+
     private static void initSettings(){
 
         Properties properties = new Properties();
@@ -46,10 +50,27 @@ public class Util {
 
             if (properties.getProperty("logSettingsPath")== null) {
                 properties.setProperty("logSettingsPath", "config/log4j.xml");
-
-                OutputStream os = new FileOutputStream("config/settings.properties");
-                properties.store(os, "Automatic created configuration file.");
             }
+
+            if (properties.getProperty("mode") == null){
+                properties.setProperty("mode", "emulation");
+            }
+
+            if (properties.getProperty("clientPort") == null){
+                properties.setProperty("clientPort", "9998");
+            }
+
+            if (properties.getProperty("eventPort") == null){
+                properties.setProperty("eventPort", "9999");
+            }
+
+            if (properties.getProperty("hostname") == null ){
+                properties.setProperty("hostname", "10.0.1.48");
+            }
+
+            OutputStream os = new FileOutputStream("config/settings.properties");
+            properties.store(os, "Automatic created configuration file.");
+
 
 
         } catch (FileNotFoundException e) {

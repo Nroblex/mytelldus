@@ -5,7 +5,7 @@ import org.joda.time.DateTime;
 /**
  * Created by anders on 10/19/15.
  */
-public class Scheduler {
+public class SchedulerObject {
 
     private String deviceName;
     private Integer deviceId;
@@ -36,7 +36,7 @@ public class Scheduler {
 
     private DateTime timePoint;
 
-    public Scheduler(String deviceName, Integer deviceId, DateTime timePoint) {
+    public SchedulerObject(String deviceName, Integer deviceId, DateTime timePoint) {
         this.deviceId=deviceId; this.deviceName=deviceName; this.timePoint=timePoint;
     }
 

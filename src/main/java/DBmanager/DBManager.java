@@ -6,15 +6,9 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.*;
+import java.util.*;
+import java.util.Date;
 
 /**
  * Created by ueh093 on 10/22/15.
@@ -22,7 +16,6 @@ import java.util.Map;
 public class DBManager implements ConnectionManager{
 
     Logger iLog = LogManager.getLogger(DBManager.class);
-
     Connection connection=null;
 
     public void connect() {
@@ -30,7 +23,6 @@ public class DBManager implements ConnectionManager{
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:db/configdb.db");
-
         } catch (ClassNotFoundException e) {
             iLog.error(e);
         } catch (SQLException e) {
@@ -39,10 +31,10 @@ public class DBManager implements ConnectionManager{
 
     }
 
-    public List<Map<Integer, SchemaDevices>> getScheduledDevices(){
+    public List<Map<Integer, SchemaDevice>> getScheduledDevices(){
 
-        Map<Integer,SchemaDevices> deviceMap = new HashMap<Integer, SchemaDevices>();
-        List<Map<Integer,SchemaDevices>> mapList = new ArrayList<Map<Integer, SchemaDevices>>();
+        Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
+        List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
 
         DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
         if (connection == null)
@@ -55,7 +47,7 @@ public class DBManager implements ConnectionManager{
                 deviceMap.put
                         (
                                 rs.getInt("deviceID"),
-                                new SchemaDevices(rs.getString("timePoint"), rs.getInt("action"))
+                                new SchemaDevice(rs.getInt("deviceID"), formatter.parseDateTime(rs.getString("timePoint")), rs.getInt("action"))
                         );
                 mapList.add(deviceMap);
             }
@@ -65,5 +57,29 @@ public class DBManager implements ConnectionManager{
         }
 
         return mapList;
+    }
+
+
+    public void UpdateConfiguration(SchemaDevice device) {
+        String sql = "UPDATE timeschema SET updatedAt = ? Where deviceID = ?";
+
+        if (connection==null)
+            connect();
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setTimestamp(1, new Timestamp((new Date().getTime())));
+            stmt.setInt(2, device.getDeviceID());
+
+            stmt.execute();
+
+            getScheduledDevices();
+
+        } catch (SQLException e) {
+
+            iLog.error(e);
+        }
+
     }
 }

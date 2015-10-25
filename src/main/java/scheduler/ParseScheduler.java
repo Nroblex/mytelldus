@@ -1,15 +1,15 @@
 package scheduler;
 
 import DBmanager.DBManager;
-import DBmanager.SchemaDevices;
-import devices.ConfiguredDevices;
+import DBmanager.SchemaDevice;
+import communication.CommandHandler;
+import communication.Initialize;
+import communication.TelldusInterface;
+import devices.ConfiguredDevice;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
 
-import java.sql.DriverManager;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,13 +17,16 @@ import java.util.Map;
  * Created by ueh093 on 10/22/15.
  * This reads the ConfigurationDatabase to Search for configuredDevices.
  */
-public class ParseScheduler implements Runnable {
+public class ParseScheduler extends CommandHandler implements Runnable{
 
     Logger iLog = LogManager.getLogger(ParseScheduler.class);
-    private List<Map<Integer, SchemaDevices>> timeMapList = new ArrayList<Map<Integer, SchemaDevices>>();
+    private List<Map<Integer, SchemaDevice>> timeMapList = new ArrayList<Map<Integer, SchemaDevice>>();
     private DBManager dbManager;
     public Boolean doRun = true;
 
+    private List<ConfiguredDevice> configuredDevicesList ;
+
+    static TelldusInterface telldusInterface = Initialize.getTelldusInterface();
 
     public ParseScheduler() {
         dbManager = new DBManager();
@@ -32,8 +35,16 @@ public class ParseScheduler implements Runnable {
     public void run() {
 
         initTimeMap();
+        getConfiguredDevices();
 
-        if (ConfiguredDevices.getConfiguredDevices() == null) {
+        if (configuredDevicesList.size() == 0){
+            iLog.warn("There are no configured devices. Ending...!");
+            return;
+        }
+
+
+        /*
+        if (ConfiguredDevice.getConfiguredDevicesMOCK() == null) {
             try {
                 throw new Exception("There are no configured Devices!!!");
             } catch (Exception e) {
@@ -41,16 +52,24 @@ public class ParseScheduler implements Runnable {
                 return;
             }
         }
+        */
 
         while(doRun){
-            System.out.println("Checking devices..");
 
-            if (timeMapList.size()>0){
-                for (int n = 0; n<=timeMapList.size(); n++){
+            for (ConfiguredDevice device : configuredDevicesList){
 
+                for (int n =0; n<=timeMapList.size() -1; n++){
 
+                    Map<Integer, SchemaDevice> confDevice = timeMapList.get(n);
+                    if ( confDevice.containsKey(device.getDeviceId()) ){
+
+                        SchemaDevice schemaDevice = confDevice.get(device.getDeviceId());
+                        HandleConfiguredDevice(schemaDevice);
+
+                    }
 
                 }
+
             }
 
 
@@ -63,8 +82,26 @@ public class ParseScheduler implements Runnable {
         }
     }
 
+    private void getConfiguredDevices() {
+        configuredDevicesList = new ArrayList<ConfiguredDevice>(telldusInterface.tdGetNumberOfDevices());
+
+        for (int n = 0; n<=telldusInterface.tdGetNumberOfDevices(); n++){
+
+            ConfiguredDevice configuredDevice = new ConfiguredDevice(
+                    telldusInterface.tdGetDeviceId(n),
+                    telldusInterface.tdGetName(n)
+            );
+
+            configuredDevicesList.add(configuredDevice);
+        }
+    }
+
     private void initTimeMap(){
         timeMapList=dbManager.getScheduledDevices();
     }
 
+    @Override
+    protected void updateConfiguration(SchemaDevice device) {
+        dbManager.UpdateConfiguration(device);
+    }
 }
