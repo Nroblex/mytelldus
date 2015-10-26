@@ -9,6 +9,7 @@ import devices.ConfiguredDevice;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+import utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,17 +44,6 @@ public class ParseScheduler extends CommandHandler implements Runnable{
         }
 
 
-        /*
-        if (ConfiguredDevice.getConfiguredDevicesMOCK() == null) {
-            try {
-                throw new Exception("There are no configured Devices!!!");
-            } catch (Exception e) {
-                iLog.error(e);
-                return;
-            }
-        }
-        */
-
         while(doRun){
 
             initTimeMap(); //reparsing database...
@@ -65,23 +55,15 @@ public class ParseScheduler extends CommandHandler implements Runnable{
                     Map<Integer, SchemaDevice> confDevice = timeMapList.get(n);
 
                     if ( confDevice.containsKey(device.getDeviceId()) ){
-
                         SchemaDevice schemaDevice = confDevice.get(device.getDeviceId());
-                        //Har tiden passerat ?
-                        //if (timeHasPassed(schemaDevice.getTimePoint()))
-                            //continue;
 
+                        //If On Same Second...
                         if (schemaDevice.getTimePoint().getSecondOfDay() == DateTime.now().getSecondOfDay()) {
                             HandleConfiguredDevice(schemaDevice);
                         }
-
                     }
-
                 }
-
             }
-
-
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -98,8 +80,14 @@ public class ParseScheduler extends CommandHandler implements Runnable{
     }
 
     private void getConfiguredDevices() {
-        configuredDevicesList = new ArrayList<ConfiguredDevice>(telldusInterface.tdGetNumberOfDevices());
 
+        if (Util.getSetting("emulation", "true") == "true"){
+            iLog.info("OBS === Running in emulation mode ===");
+            configuredDevicesList = ConfiguredDevice.getConfiguredDevicesMOCK();
+            return;
+        }
+
+        configuredDevicesList = new ArrayList<ConfiguredDevice>(telldusInterface.tdGetNumberOfDevices());
         for (int n = 0; n<=telldusInterface.tdGetNumberOfDevices(); n++){
 
             ConfiguredDevice configuredDevice = new ConfiguredDevice(
@@ -111,8 +99,9 @@ public class ParseScheduler extends CommandHandler implements Runnable{
         }
     }
 
+    //Getting future configured devices...not passed!
     private void initTimeMap(){
-        timeMapList=dbManager.getScheduledDevices();
+        timeMapList=dbManager.getScheduledDevicesLaterThanNow();
     }
 
     @Override

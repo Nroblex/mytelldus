@@ -2,7 +2,6 @@ package DBmanager;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -31,7 +30,9 @@ public class DBManager implements ConnectionManager{
 
     }
 
-    public List<Map<Integer, SchemaDevice>> getScheduledDevices(){
+
+
+    public List<Map<Integer, SchemaDevice>> getAllScheduledDevices(){
 
         Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
         List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
@@ -65,6 +66,40 @@ public class DBManager implements ConnectionManager{
         return mapList;
     }
 
+    public List<Map<Integer, SchemaDevice>> getScheduledDevicesLaterThanNow(){
+
+        Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
+        List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
+
+        DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
+        if (connection == null)
+            connect();
+        try {
+            Statement stmt = connection.createStatement();
+
+            ResultSet rs = stmt.executeQuery("SELECT * FROM timeschema WHERE time(timePoint) > time('now')");
+            while (rs.next()){
+                deviceMap.put
+                        (
+                                rs.getInt("deviceID"),
+                                new SchemaDevice
+                                        (
+                                                rs.getInt("ID"),
+                                                rs.getInt("deviceID"),
+                                                formatter.parseDateTime(rs.getString("timePoint")),
+                                                rs.getInt("action")
+                                        )
+                        );
+                mapList.add(deviceMap);
+            }
+
+        } catch (SQLException e) {
+            iLog.error(e);
+        }
+
+        return mapList;
+    }
+
 
     public void UpdateConfiguration(SchemaDevice device) {
         String sql = "UPDATE timeschema SET updatedAt = ? Where ID = ?";
@@ -80,7 +115,7 @@ public class DBManager implements ConnectionManager{
 
             stmt.execute();
 
-            getScheduledDevices();
+            getAllScheduledDevices();
 
         } catch (SQLException e) {
 

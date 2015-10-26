@@ -43,13 +43,14 @@ public class ConfiguredDevice {
 
     private static List<ConfiguredDevice> mockGetConfiguredDevices(){
         List<ConfiguredDevice> configuredDevices = new ArrayList<ConfiguredDevice>();
+
         ConfiguredDevice conf = new ConfiguredDevice();
         conf.setDeviceId(1);
         conf.setDeviceName("Lampa 1");
 
         ConfiguredDevice conf1 = new ConfiguredDevice();
-        conf.setDeviceId(2);
-        conf.setDeviceName("Lampa 2");
+        conf1.setDeviceId(2);
+        conf1.setDeviceName("Lampa 2");
 
         configuredDevices.add(conf);
         configuredDevices.add(conf1);

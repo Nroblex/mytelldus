@@ -16,7 +16,7 @@ public class Program {
 
     static Logger iLog = LogManager.getLogger(Program.class);
 
-    TelldusInterface iface = Initialize.getTelldusInterface();
+
 
     public static void main(String[] args) throws IOException {
 

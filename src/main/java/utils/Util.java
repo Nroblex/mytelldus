@@ -68,6 +68,7 @@ public class Util {
                 properties.setProperty("hostname", "10.0.1.48");
             }
 
+
             OutputStream os = new FileOutputStream("config/settings.properties");
             properties.store(os, "Automatic created configuration file.");
 
