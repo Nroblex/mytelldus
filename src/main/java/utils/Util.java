@@ -30,6 +30,9 @@ public class Util {
 
     }
 
+    public static void printMessage( String msg ){
+        System.out.println(msg);
+    }
 
     public static Integer getIntSetting(String key){
         return Integer.parseInt(getSetting(key, ""));

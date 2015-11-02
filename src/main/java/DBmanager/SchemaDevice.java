@@ -10,6 +10,7 @@ public class SchemaDevice {
 
      private Integer ID;
      private Integer deviceID;
+     private String deviceName;
      private DateTime timePoint;
      private Integer action;
      private DateTime updatedAt;
@@ -44,10 +45,14 @@ public class SchemaDevice {
         this.ID = ID; this.deviceID=deviceID; this.timePoint=timePoint; this.action=action;
     }
 
-    public DateTime getDeviceName() {
-        return timePoint;
-    }
-     
+
+     public String getDeviceName() {
+         return deviceName;
+     }
+
+     public void setDeviceName(String deviceName) {
+         this.deviceName = deviceName;
+     }
 
     public Integer getAction() {
         return action;

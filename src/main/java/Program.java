@@ -4,6 +4,7 @@ import communication.TelldusInterface;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
 import scheduler.ParseScheduler;
+import scheduler.TimeParser;
 import utils.Util;
 
 import java.io.*;
@@ -28,7 +29,9 @@ public class Program {
 
 
 
-        new ParseScheduler().run();
+        new TimeParser();
+
+        //new ParseScheduler().run();
 
         //initializeTest();
 
