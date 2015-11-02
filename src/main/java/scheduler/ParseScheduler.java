@@ -101,7 +101,7 @@ public class ParseScheduler extends CommandHandler implements Runnable{
 
     //Getting future configured devices...not passed!
     private void initTimeMap(){
-        timeMapList=dbManager.getScheduledDevicesLaterThanNow();
+        //timeMapList=dbManager.getScheduledDevicesLaterThanNow();
     }
 
     @Override

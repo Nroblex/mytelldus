@@ -66,10 +66,10 @@ public class DBManager implements ConnectionManager{
         return mapList;
     }
 
-    public List<Map<Integer, SchemaDevice>> getScheduledDevicesLaterThanNow(){
+    public Map<Integer, SchemaDevice> getScheduledDevicesLaterThanNow(){
 
         Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
-        List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
+
 
         DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
         DateTimeFormatter dtFormatter = DateTimeFormat.forPattern("HH:mm");
@@ -82,7 +82,7 @@ public class DBManager implements ConnectionManager{
             while (rs.next()){
                 deviceMap.put
                         (
-                                rs.getInt("deviceID"),
+                                rs.getInt("ID"),
                                 new SchemaDevice
                                         (
                                                 rs.getInt("ID"),
@@ -91,14 +91,15 @@ public class DBManager implements ConnectionManager{
                                                 rs.getInt("action")
                                         )
                         );
-                mapList.add(deviceMap);
+
+
             }
 
         } catch (SQLException e) {
             iLog.error(e);
         }
 
-        return mapList;
+        return deviceMap;
     }
 
 
