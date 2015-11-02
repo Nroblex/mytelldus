@@ -2,6 +2,7 @@ package scheduler;
 
 import DBmanager.DBManager;
 import DBmanager.SchemaDevice;
+import communication.CommandHandler;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
@@ -25,7 +26,7 @@ import java.util.TimerTask;
 /**
  * Created by ueh093 on 11/2/15.
  */
-public class TimeParser extends Timer {
+public class TimeParser extends CommandHandler {
 
     Logger iLog = LogManager.getLogger(TimeParser.class);
 
@@ -93,13 +94,18 @@ public class TimeParser extends Timer {
                 SwingUtilities.invokeAndWait(new Runnable() {
                     public void run() {
 
-                        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.getTime();
+                        //DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+                        //Calendar calendar = Calendar.getInstance();
+                        //calendar.getTime();
+                        //String time = timeFormat.format(calendar.getTimeInMillis());
+                       // System.out.println("Time is now: " + timeFormat.format(calendar.getTimeInMillis()));
 
-                        String time = timeFormat.format(calendar.getTimeInMillis());
 
-                        System.out.println("Time is now: " + timeFormat.format(calendar.getTimeInMillis()));
+                        executeIfOnTime();
+
+
+
+
 
                     }
                 });
@@ -110,7 +116,32 @@ public class TimeParser extends Timer {
             }
 
         }
+
+
     };
+
+    //Om tiden är på sekunden så kör vi kommandot
+    private void executeIfOnTime() {
+
+        Iterator iterator = dbConfiguredDevices.entrySet().iterator();
+
+        while (iterator.hasNext()) {
+            Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
+
+            if (actualDevice.getValue().getTimePoint().getSecondOfDay() == DateTime.now().getSecondOfDay()){
+
+                iLog.info("====EXECUTING====");
+
+                HandleConfiguredDevice(actualDevice.getValue());
+
+                iLog.info("====END EXECUTING====");
+
+            }
+
+        }
+
+    }
+
 
     private void logInformation() {
 
@@ -125,11 +156,21 @@ public class TimeParser extends Timer {
         while (iterator.hasNext()) {
             Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
             Integer secDiff = actualDevice.getValue().getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
-            Util.printMessage(String.format("Following schema exist: %s time up : %s seconds...", actualDevice.getValue().getTimePoint().toLocalTime(),
-                    String.valueOf(secDiff)));
+            Util.printMessage(String.format("Counting down, : for deviceId [%s] to [%s] seconds action -> [%s]",
+                    String.valueOf(actualDevice.getValue().getDeviceID()),
+                    String.valueOf(secDiff),
+                    String.valueOf(actualDevice.getValue().getAction())));
+
         }
 
 
+        Util.printMessage("\n");
+
+    }
+
+    @Override
+    protected void updateConfiguration(SchemaDevice device) {
+        dbManager.UpdateConfiguration(device);
     }
 
 

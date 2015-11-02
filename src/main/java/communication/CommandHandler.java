@@ -42,15 +42,8 @@ public abstract class CommandHandler {
 
     public void HandleConfiguredDevice(SchemaDevice device){
 
-        DateTime configuredTimePoint = device.getTimePoint();
-        DateTime lastUpdatedAt = device.getUpdatedAt();
-
         if (device.getUpdatedAt() != null) {
-
             System.out.println("Last UpdatedTime is : " + device.getUpdatedAt().toLocalTime());
-            int secDif = DateTime.now().getSecondOfDay() - device.getUpdatedAt().getSecondOfDay() ;
-            if (secDif < 30)
-                return;
         } else {
             System.out.println("The deviceConfig was never updated!");
         }

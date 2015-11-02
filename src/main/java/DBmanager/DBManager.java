@@ -72,13 +72,13 @@ public class DBManager implements ConnectionManager{
 
 
         DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
-        DateTimeFormatter dtFormatter = DateTimeFormat.forPattern("HH:mm");
+        DateTimeFormatter dtFormatter = DateTimeFormat.forPattern("HH:mm:ss");
         if (connection == null)
             connect();
         try {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM timeschema ts INNER JOIN devices dv ON dv.deviceId = ts.deviceId WHERE time(ts.timePoint) > time('now')");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM timeschema ts INNER JOIN devices dv ON dv.deviceId = ts.deviceId WHERE time(ts.timePoint) > time('now', 'localtime') ORDER BY time('now','localtime')");
             while (rs.next()){
                 deviceMap.put
                         (
@@ -117,7 +117,7 @@ public class DBManager implements ConnectionManager{
 
             stmt.execute();
 
-            getAllScheduledDevices();
+            //getAllScheduledDevices();
 
         } catch (SQLException e) {
 

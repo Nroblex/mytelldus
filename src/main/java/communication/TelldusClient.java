@@ -140,8 +140,8 @@ public class TelldusClient implements Runnable {
 
         if (event.toString().length()> 0) {
 
-            log.info("An event was received. " +event);
-            log.info("");
+            //log.info("An event was received. " +event);
+            //log.info("");
 
 
         }

@@ -19,6 +19,7 @@ import java.util.Map;
  * Created by ueh093 on 10/22/15.
  * This reads the ConfigurationDatabase to Search for configuredDevices.
  */
+@Deprecated
 public class ParseScheduler extends CommandHandler implements Runnable{
 
     Logger iLog = LogManager.getLogger(ParseScheduler.class);
