@@ -140,8 +140,8 @@ public class TelldusClient implements Runnable {
 
         if (event.toString().length()> 0) {
 
-            //log.info("An event was received. " +event);
-            //log.info("");
+            log.info("An event was received -> " +event);
+            log.info("");
 
 
         }
@@ -207,7 +207,7 @@ public class TelldusClient implements Runnable {
          * per connection..
          */
         try {
-            // Socket is generally already disconnected.. But for retrys, might not be.
+            // Socket is generally already disconnected.. But for retrys, might not be.getSetting
 
             // XXX: trunk client has retry support.
             client.disconnect();

@@ -146,7 +146,7 @@ public class TimeParser extends CommandHandler {
     private void logInformation() {
 
 
-        Util.printMessage(String.format("Threre are %s configured devices", String.valueOf(dbConfiguredDevices.size())));
+        Util.printMessage(String.format("Det finns %s konfigurerade tider.", String.valueOf(dbConfiguredDevices.size())));
 
         //dbConfiguredDevices.forEach((k, v)->System.out.println("Key = " + k + " Value = " + v);
 
@@ -154,12 +154,15 @@ public class TimeParser extends CommandHandler {
         Iterator iterator = dbConfiguredDevices.entrySet().iterator();
 
         while (iterator.hasNext()) {
+
             Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
+            
             Integer secDiff = actualDevice.getValue().getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
-            Util.printMessage(String.format("Counting down, : for deviceId [%s] to [%s] seconds action -> [%s]",
+            Util.printMessage(String.format("Räknar ner, : för enhet {%s} till [%s] sekunder action -> [%s] ==TID== > [%s]",
                     String.valueOf(actualDevice.getValue().getDeviceID()),
                     String.valueOf(secDiff),
-                    String.valueOf(actualDevice.getValue().getAction())));
+                    String.valueOf(actualDevice.getValue().getAction() ),
+                    actualDevice.getValue().getTimePoint().toLocalTime()));
 
         }
 

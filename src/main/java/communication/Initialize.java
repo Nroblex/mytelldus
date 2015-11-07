@@ -18,6 +18,7 @@ public class Initialize{
     public static TelldusInterface getTelldusInterface(){
         if (telldusInterface == null) {
             try {
+                iLog.info("Starting up telldusinterface, listening on port " + String.valueOf(Util.getIntSetting("clientPort")));
                 telldusInterface = new TelldusInterface(
                         Util.getSetting("hostname", ""),
                         Util.getIntSetting("clientPort"),
