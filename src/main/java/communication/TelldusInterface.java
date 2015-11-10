@@ -44,7 +44,7 @@ import java.util.List;
  *
  * @author Johan Ström <johan@stromnet.se>
  */
-public class TelldusInterface {
+public class TelldusInterface implements ITelldusInterface {
     protected TelldusClient client;
 
     public TelldusInterface(String host, int clientPort, int eventPort) throws IOException {
@@ -559,36 +559,6 @@ public class TelldusInterface {
         }
 
         return l;
-    }
-
-    public static class Controller {
-        private int id;
-        private Protocol.ControllerType type;
-        private String name;
-        private boolean available;
-
-        public Controller(Message src) {
-            id = src.takeInt();
-            type = Protocol.ControllerType.fromCode(src.takeInt());
-            name = src.takeString();
-            available = (src.takeInt() == 1);
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public Protocol.ControllerType getType() {
-            return type;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public boolean isAvailable() {
-            return available;
-        }
     }
 
     /**

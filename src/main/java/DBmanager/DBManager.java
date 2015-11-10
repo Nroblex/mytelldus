@@ -4,6 +4,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import utils.Comparer;
 
 import java.sql.*;
 import java.util.*;
@@ -99,7 +100,17 @@ public class DBManager implements ConnectionManager{
             iLog.error(e);
         }
 
+        sortDevices(deviceMap);
+
         return deviceMap;
+    }
+
+    private void sortDevices(Map<Integer, SchemaDevice> deviceMap) {
+
+        Comparer comp = new Comparer(deviceMap);
+
+        int x = 1;
+
     }
 
 

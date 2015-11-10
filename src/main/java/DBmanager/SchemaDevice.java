@@ -5,7 +5,7 @@
  /**
  * Created by ueh093 on 10/23/15.
  */
-public class SchemaDevice {
+public class SchemaDevice  {
 
 
      private Integer ID;
@@ -69,6 +69,7 @@ public class SchemaDevice {
      public void setDeviceID(Integer deviceID) {
          this.deviceID = deviceID;
      }
+
 
 
  }
