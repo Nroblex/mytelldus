@@ -16,15 +16,15 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ClosedByInterruptException;
 
 /**
- * Implements the client communications. Opens up one event socket, and provides
- * the basics for TelldusInterface to execute commands.
+ * Implements the telldusServer communications. Opens up one event socket, and provides
+ * the basics for Telldus to execute commands.
  *
- * Similar to client/Client.cpp
+ * Similar to telldusServer/Client.cpp
  *
  * @author johan
  */
-public class TelldusClient implements Runnable {
-    private static final Logger log = LogManager.getLogger(TelldusClient.class);
+public class TelldusServer implements Runnable {
+    private static final Logger log = LogManager.getLogger(TelldusServer.class);
 
     private TelldusSocket client, events;
     protected Thread thread;
@@ -33,11 +33,11 @@ public class TelldusClient implements Runnable {
     private boolean run = true;
 
 
-    public TelldusClient() {
+    public TelldusServer() {
         dispatcher = new EventDispatcher();
     }
 
-    public TelldusClient(String host, int clientPort, int eventPort) throws IOException {
+    public TelldusServer(String host, int clientPort, int eventPort) throws IOException {
         this();
         start(host, clientPort, eventPort);
     }
@@ -209,7 +209,7 @@ public class TelldusClient implements Runnable {
         try {
             // Socket is generally already disconnected.. But for retrys, might not be.getSetting
 
-            // XXX: trunk client has retry support.
+            // XXX: trunk telldusServer has retry support.
             client.disconnect();
 
             client.connect();

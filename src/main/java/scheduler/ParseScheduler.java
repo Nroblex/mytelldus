@@ -4,7 +4,7 @@ import DBmanager.DBManager;
 import DBmanager.SchemaDevice;
 import communication.CommandHandler;
 import communication.Initialize;
-import communication.TelldusInterface;
+import communication.Telldus;
 import devices.ConfiguredDevice;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -29,7 +29,7 @@ public class ParseScheduler extends CommandHandler implements Runnable{
 
     private List<ConfiguredDevice> configuredDevicesList ;
 
-    static TelldusInterface telldusInterface = Initialize.getTelldusInterface();
+    static Telldus telldus = Initialize.getTelldus();
 
     public ParseScheduler() {
         dbManager = new DBManager();
@@ -88,12 +88,12 @@ public class ParseScheduler extends CommandHandler implements Runnable{
             return;
         }
 
-        configuredDevicesList = new ArrayList<ConfiguredDevice>(telldusInterface.tdGetNumberOfDevices());
-        for (int n = 0; n<=telldusInterface.tdGetNumberOfDevices(); n++){
+        configuredDevicesList = new ArrayList<ConfiguredDevice>(telldus.tdGetNumberOfDevices());
+        for (int n = 0; n<= telldus.tdGetNumberOfDevices(); n++){
 
             ConfiguredDevice configuredDevice = new ConfiguredDevice(
-                    telldusInterface.tdGetDeviceId(n),
-                    telldusInterface.tdGetName(n)
+                    telldus.tdGetDeviceId(n),
+                    telldus.tdGetName(n)
             );
 
             configuredDevicesList.add(configuredDevice);

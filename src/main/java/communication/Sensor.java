@@ -54,7 +54,7 @@ public class Sensor {
 
     /**
      * Return a list of all datatypes available.
-     * Normally only used when received from {@see TelldusInterface.tdSensor()}.
+     * Normally only used when received from {@see Telldus.tdSensor()}.
      */
     public List<Protocol.SensorValueType> getDataTypes() {
         return dataTypes;

@@ -2,6 +2,7 @@ package DBmanager;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import utils.Comparer;
@@ -54,7 +55,7 @@ public class DBManager implements ConnectionManager{
                                             rs.getInt("ID"),
                                             rs.getInt("deviceID"),
                                             formatter.parseDateTime(rs.getString("timePoint")),
-                                            rs.getInt("action")
+                                            rs.getInt("action"),rs.getInt("dayofweek")
                                         )
                         );
                 mapList.add(deviceMap);
@@ -71,6 +72,7 @@ public class DBManager implements ConnectionManager{
 
         Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
 
+        int dayOfWeek = DateTime.now().getDayOfWeek();
 
         DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
         DateTimeFormatter dtFormatter = DateTimeFormat.forPattern("HH:mm:ss");
@@ -79,7 +81,12 @@ public class DBManager implements ConnectionManager{
         try {
             Statement stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM timeschema ts INNER JOIN devices dv ON dv.deviceId = ts.deviceId WHERE time(ts.timePoint) > time('now', 'localtime') ORDER BY time('now','localtime')");
+            String sqlQuery = "SELECT * FROM timeschema ts INNER JOIN devices dv ON dv.deviceId = ts.deviceId ";
+            sqlQuery+= " WHERE time(ts.timePoint) > time('now', 'localtime') ";
+            sqlQuery+= String.format(" AND dayofWeek = '%s' ",dayOfWeek);
+            sqlQuery+= "ORDER BY time('now','localtime')";
+
+            ResultSet rs = stmt.executeQuery(sqlQuery);
             while (rs.next()){
                 deviceMap.put
                         (
@@ -89,7 +96,7 @@ public class DBManager implements ConnectionManager{
                                                 rs.getInt("ID"),
                                                 rs.getInt("deviceID"),
                                                 dtFormatter.parseDateTime(rs.getString("timePoint")),
-                                                rs.getInt("action")
+                                                rs.getInt("action"), rs.getInt("dayofweek")
                                         )
                         );
 

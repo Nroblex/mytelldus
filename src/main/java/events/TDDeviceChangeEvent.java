@@ -16,7 +16,7 @@ public class TDDeviceChangeEvent extends TelldusDeviceEvent {
 		/* In service code, changeEvent is called eventDeviceChanges, which would
 		 * imply multiple changes (which doesn't make sense though, since values are
 		 * not bit-weighted).
-		 * However, in client callback code (CallbackDispatcher.h) it is called
+		 * However, in telldusServer callback code (CallbackDispatcher.h) it is called
 		 * changeEvent, so thats what we use here.
 		 */
         changeEvent = Protocol.ChangeEvent.fromCode(msg.takeInt());

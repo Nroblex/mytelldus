@@ -11,27 +11,27 @@ import java.io.IOException;
  */
 public class Initialize{
 
-    private static TelldusInterface telldusInterface = null;
+    private static Telldus telldus = null;
     private static Logger iLog = LogManager.getLogger(Initialize.class);
 
 
-    public static TelldusInterface getTelldusInterface(){
-        if (telldusInterface == null) {
+    public static Telldus getTelldus(){
+        if (telldus == null) {
             try {
                 iLog.info("Starting up telldusinterface, listening on port " + String.valueOf(Util.getIntSetting("clientPort")));
-                telldusInterface = new TelldusInterface(
+                telldus = new Telldus(
                         Util.getSetting("hostname", ""),
                         Util.getIntSetting("clientPort"),
                         Util.getIntSetting("eventPort"));
 
-                iLog.info("TelldusInterface started, listening for communication!");
+                iLog.info("Telldus started, listening for communication!");
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
         }
-        return telldusInterface;
+        return telldus;
     }
 
 }

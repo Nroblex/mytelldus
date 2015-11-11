@@ -7,14 +7,22 @@
  */
 public class SchemaDevice  {
 
-
      private Integer ID;
      private Integer deviceID;
      private String deviceName;
      private DateTime timePoint;
      private Integer action;
      private DateTime updatedAt;
+     private Integer dayOfWeek;
 
+
+     public Integer getDayOfWeek() {
+         return dayOfWeek;
+     }
+
+     public void setDayOfWeek(Integer dayOfWeek) {
+         this.dayOfWeek = dayOfWeek;
+     }
 
      public Integer getID() {
          return ID;
@@ -41,8 +49,8 @@ public class SchemaDevice  {
          this.updatedAt = updatedAt;
      }
 
-     public SchemaDevice(Integer ID, Integer deviceID, DateTime timePoint, Integer action){
-        this.ID = ID; this.deviceID=deviceID; this.timePoint=timePoint; this.action=action;
+     public SchemaDevice(Integer ID, Integer deviceID, DateTime timePoint, Integer action, Integer dayOfWeek){
+        this.ID = ID; this.deviceID=deviceID; this.timePoint=timePoint; this.action=action; this.dayOfWeek=dayOfWeek;
     }
 
 

@@ -3,7 +3,6 @@ package communication;
 import DBmanager.SchemaDevice;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -16,19 +15,19 @@ public abstract class CommandHandler {
 
     private DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
 
-    private static TelldusInterface telldusInterface;
+    private static Telldus telldus;
 
     private void ExecuteCommand(SchemaDevice device){
-        if (telldusInterface == null)
-            telldusInterface = Initialize.getTelldusInterface();
+        if (telldus == null)
+            telldus = Initialize.getTelldus();
 
         if (device.getAction() == 0){
             iLog.info("Action was 0, trying to turn off device + " + device.getDeviceID());
-            telldusInterface.tdTurnOff(device.getDeviceID());
+            telldus.tdTurnOff(device.getDeviceID());
         }
         if (device.getAction()== 1){
             iLog.info("Action was 1, trying to turn on device + " + device.getDeviceID());
-            telldusInterface.tdTurnOn(device.getDeviceID());
+            telldus.tdTurnOn(device.getDeviceID());
         }
 
 

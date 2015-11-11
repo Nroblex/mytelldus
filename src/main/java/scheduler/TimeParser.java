@@ -65,11 +65,11 @@ public class TimeParser extends CommandHandler {
 
                         String time = timeFormat.format(calendar.getTimeInMillis());
 
-                        System.out.println("DATABASE CHECKING AT : " + timeFormat.format(calendar.getTimeInMillis()));
-
                         dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNow();
                         if (dbConfiguredDevices.size() > 0) {
                             logInformation();
+                        } else {
+                            Util.printMessage("Inga aktivitet för idag!");
                         }
 
                     }

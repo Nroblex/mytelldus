@@ -1,9 +1,8 @@
-import communication.Initialize;
 import communication.Protocol;
-import communication.TelldusInterface;
+import communication.Telldus;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
-import scheduler.ParseScheduler;
+import org.joda.time.DateTime;
 import scheduler.TimeParser;
 import utils.Util;
 
@@ -28,6 +27,9 @@ public class Program {
         iLog.info("Starting...");
 
 
+        DateTime today = DateTime.now();
+        System.out.println(today.dayOfWeek().get() );
+
 
         new TimeParser();
 
@@ -48,7 +50,7 @@ public class Program {
 
     private static void startADevice(int i) throws IOException{
 
-        TelldusInterface iface = new TelldusInterface("10.0.1.48", 9998, 9999);
+        Telldus iface = new Telldus("10.0.1.48", 9998, 9999);
         String name = iface.tdGetName(i);
 
 
@@ -71,7 +73,7 @@ public class Program {
     private static void initializeTest() {
         try {
 
-            TelldusInterface iface = new TelldusInterface("10.0.1.48", 9998, 9999);
+            Telldus iface = new Telldus("10.0.1.48", 9998, 9999);
 
             int devices = iface.tdGetNumberOfDevices();
 
