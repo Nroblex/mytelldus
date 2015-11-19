@@ -43,8 +43,18 @@ public class TimeParser extends CommandHandler {
         timerCheckdatabaseConfig.scheduleAtFixedRate(timerTaskReadDatabaseConfig, 0, 10000);
 
         dbManager = new DBManager();
+
+        initDBConfiguration();
+
+    }
+
+    private void initDBConfiguration() {
         dbFile = Util.getSetting("dbfile");
 
+        if (dbFile.endsWith(".db"))
+            iLog.info("Application is running with SQLite database");
+        else
+            iLog.info("Application is running with XML database");
     }
 
     /*
@@ -73,7 +83,7 @@ public class TimeParser extends CommandHandler {
                         if (dbConfiguredDevices.size() > 0) {
                             logInformation();
                         } else {
-                            Util.printMessage("Inga aktivitet för idag!");
+                            Util.printMessage("No more activities for today!");
                         }
 
                     }

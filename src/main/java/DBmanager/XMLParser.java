@@ -32,6 +32,16 @@ import java.util.Map;
  */
 public class XMLParser {
 
+    private static final int MONDAY=1;
+    private static final int TUESDAY=2;
+    private static final int WEDNESDAY=3;
+    private static final int THURSDAY=4;
+    private static final int FRIDAY=5;
+    private static final int SATURDAY=6;
+    private static final int SUNDAY=7;
+
+
+
     private static String DEVICE_PATH="/devices/device";
 
     Logger iLog = LogManager.getLogger(XMLParser.class);
@@ -51,11 +61,12 @@ public class XMLParser {
 
         DateTime timePoint=null;
         String action =null;
-        String dayofweek=null;
-        String updatedat =null;
+        String weekDay = null;
+        Integer dayOfWeek = DateTime.now().getDayOfWeek();
         String deviceId=null;
 
         DateTimeFormatter formatter = DateTimeFormat.forPattern("HH:mm:ss");
+
 
         Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
         List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
@@ -78,24 +89,23 @@ public class XMLParser {
 
                         String dtTimePoint =  xPath.compile("./timepoint").evaluate(deviceNode);
                         timePoint = formatter.parseDateTime(dtTimePoint);
-
                         action = xPath.compile("./action").evaluate(deviceNode);
-                        dayofweek = xPath.compile("./dayofweek").evaluate(deviceNode);
-                        updatedat = xPath.compile("./updatedat").evaluate(deviceNode);
                     }
-
-
                 }
 
                 if (deviceNode.hasAttributes()){
                     NamedNodeMap namedNodeMap=deviceNode.getAttributes();
                     for (int n = 0; n<namedNodeMap.getLength(); n++){
-                        deviceId = namedNodeMap.item(n).getNodeValue();
+                        if (namedNodeMap.item(n).getNodeName().compareTo("id") == 0)
+                            deviceId = namedNodeMap.item(n).getNodeValue();
+                        else
+                            weekDay =  namedNodeMap.item(n).getNodeValue();
                     }
                 }
 
 
-                SchemaDevice dbSchemaDevice = new SchemaDevice(Integer.parseInt(deviceId), timePoint, Integer.parseInt(action),Integer.parseInt(dayofweek) );
+
+                SchemaDevice dbSchemaDevice = new SchemaDevice(Integer.parseInt(deviceId), timePoint, Integer.parseInt(action) );
                 deviceMap.put(Integer.parseInt(deviceId), dbSchemaDevice);
 
                 mapList.add(deviceMap);
@@ -115,7 +125,7 @@ public class XMLParser {
             iLog.error(e);
         }
 
-        return mapList;
+        return deviceMap;
 
     }
 
