@@ -32,9 +32,8 @@ public class TimeParser extends CommandHandler {
 
     private Timer timerCheckCurrentTime = new Timer("Actual time");
     private Timer timerCheckdatabaseConfig = new Timer("Read database config");
-
+    private String dbFile = null;
     private Map<Integer, SchemaDevice> dbConfiguredDevices = new HashMap<Integer, SchemaDevice>();
-
 
     private DBManager dbManager;
 
@@ -44,6 +43,7 @@ public class TimeParser extends CommandHandler {
         timerCheckdatabaseConfig.scheduleAtFixedRate(timerTaskReadDatabaseConfig, 0, 10000);
 
         dbManager = new DBManager();
+        dbFile = Util.getSetting("dbfile");
 
     }
 
@@ -65,7 +65,11 @@ public class TimeParser extends CommandHandler {
 
                         String time = timeFormat.format(calendar.getTimeInMillis());
 
-                        dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNow();
+                        if (dbFile.endsWith(".db"))
+                            dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNow();
+                        else
+                            dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNowXML(dbFile);
+
                         if (dbConfiguredDevices.size() > 0) {
                             logInformation();
                         } else {

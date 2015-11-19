@@ -32,6 +32,14 @@ public class DBManager implements ConnectionManager{
 
     }
 
+    public Map<Integer, SchemaDevice> getScheduledDevicesLaterThanNowXML(String xmlFile) {
+
+        XMLParser xmlParser = new XMLParser(xmlFile);
+        return xmlParser.xmlFileToObject();
+
+
+
+    }
 
 
     public List<Map<Integer, SchemaDevice>> getAllScheduledDevices(){

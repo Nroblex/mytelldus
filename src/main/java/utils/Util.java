@@ -30,6 +30,10 @@ public class Util {
 
     }
 
+    public static String getSetting(String key){
+        return getSetting(key, "");
+    }
+
     public static void printMessage( String msg ){
         System.out.println(msg);
     }
@@ -69,6 +73,10 @@ public class Util {
 
             if (properties.getProperty("hostname") == null ){
                 properties.setProperty("hostname", "10.0.1.48");
+            }
+
+            if (properties.getProperty("dbfile") == null){
+                properties.setProperty("dbfile", "config/configdb.db");
             }
 
 

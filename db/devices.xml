@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<devices>
+    <device id="2">
+        <timepoint>19:20:10</timepoint>
+        <action>0</action>
+        <dayofweek>3</dayofweek>
+        <updatedat></updatedat>
+    </device>
+    <device id="3">
+        <timepoint>19:21:10</timepoint>
+        <action>1</action>
+        <dayofweek>3</dayofweek>
+        <updatedat></updatedat>
+    </device>
+</devices>

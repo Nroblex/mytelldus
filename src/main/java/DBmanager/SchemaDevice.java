@@ -53,6 +53,9 @@ public class SchemaDevice  {
         this.ID = ID; this.deviceID=deviceID; this.timePoint=timePoint; this.action=action; this.dayOfWeek=dayOfWeek;
     }
 
+     public SchemaDevice(Integer deviceID, DateTime timePoint, Integer action, Integer dayOfWeek){
+         this.deviceID=deviceID; this.timePoint=timePoint; this.action=action; this.dayOfWeek=dayOfWeek;
+     }
 
      public String getDeviceName() {
          return deviceName;
