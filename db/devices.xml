@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--id är ett unikt löpnummer-->
 <devices>
-    <device id="2" weekday="torsdag">
+    <device deviceId="2" weekday="torsdag">
+        <id>100</id>
         <timepoint>20:12:10</timepoint>
         <action>ON</action>
     </device>
-    <device id="3" weekday="torsdag">
+    <device deviceId="2" weekday="torsdag">
+        <id>101</id>
+        <timepoint>20:12:15</timepoint>
+        <action>OFF</action>
+    </device>
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
         <timepoint>20:13:10</timepoint>
-        <action>1</action>
+        <action>OFF</action>
+    </device>
+    <device deviceId="2" weekday="fredag">
+        <id>103</id>
+        <timepoint>20:12:10</timepoint>
+        <action>ON</action>
+    </device>
+    <device deviceId="3" weekday="fredag">
+        <id>104</id>
+        <timepoint>20:13:10</timepoint>
+        <action>OFF</action>
+    </device>
+    <device deviceId="3" weekday="fredag">
+        <id>105</id>
+        <timepoint>20:22:10</timepoint>
+        <action>ON</action>
+    </device>
+    <device deviceId="3" weekday="fredag">
+        <id>106</id>
+        <timepoint>09:22:30</timepoint>
+        <action>ON</action>
     </device>
 </devices>

@@ -79,6 +79,9 @@ public class Util {
                 properties.setProperty("dbfile", "config/configdb.db");
             }
 
+            if (properties.get("dbchecktimeinterval") == null){
+                properties.setProperty("dbchecktimeinterval", "10000"); //Default kollas databasen var 10 sek.
+            }
 
             OutputStream os = new FileOutputStream("config/settings.properties");
             properties.store(os, "Automatic created configuration file.");

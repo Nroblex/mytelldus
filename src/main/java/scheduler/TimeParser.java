@@ -9,6 +9,7 @@ import org.joda.time.DateTime;
 import utils.Util;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -34,13 +35,16 @@ public class TimeParser extends CommandHandler {
     private Timer timerCheckdatabaseConfig = new Timer("Read database config");
     private String dbFile = null;
     private Map<Integer, SchemaDevice> dbConfiguredDevices = new HashMap<Integer, SchemaDevice>();
-
+    private Integer checkDBTimeinterval ;
     private DBManager dbManager;
 
     public TimeParser() {
 
-        timerCheckCurrentTime.scheduleAtFixedRate(timerTaskCheckCurrentTime, 1000, 1000);
-        timerCheckdatabaseConfig.scheduleAtFixedRate(timerTaskReadDatabaseConfig, 0, 10000);
+        checkDBTimeinterval=Util.getIntSetting("dbchecktimeinterval");
+        Util.printMessage("Reading every: " + checkDBTimeinterval/1000 + " second");
+
+        timerCheckCurrentTime.scheduleAtFixedRate(timerTaskCheckCurrentTime, 1000, 1000); //startar om en sekund, kör varje sekund.
+        timerCheckdatabaseConfig.scheduleAtFixedRate(timerTaskReadDatabaseConfig, 0, checkDBTimeinterval);
 
         dbManager = new DBManager();
 
@@ -51,10 +55,14 @@ public class TimeParser extends CommandHandler {
     private void initDBConfiguration() {
         dbFile = Util.getSetting("dbfile");
 
-        if (dbFile.endsWith(".db"))
+        if (dbFile.endsWith(".db")) {
             iLog.info("Application is running with SQLite database");
-        else
+            Util.printMessage("Reading from SQLite database.");
+        }
+        else {
             iLog.info("Application is running with XML database");
+            Util.printMessage("Reading from XML datafile");
+        }
     }
 
     /*
@@ -80,7 +88,7 @@ public class TimeParser extends CommandHandler {
                         else
                             dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNowXML(dbFile);
 
-                        if (dbConfiguredDevices.size() > 0) {
+                        if (dbConfiguredDevices.size() > 0 && dbConfiguredDevices != null) {
                             logInformation();
                         } else {
                             Util.printMessage("No more activities for today!");
@@ -157,13 +165,21 @@ public class TimeParser extends CommandHandler {
     }
 
 
-    private void logInformation() {
+    private void logInformation()  {
 
 
         Util.printMessage(String.format("Det finns %s konfigurerade tider.", String.valueOf(dbConfiguredDevices.size())));
 
         //dbConfiguredDevices.forEach((k, v)->System.out.println("Key = " + k + " Value = " + v);
+        try {
+            final String osName = System.getProperty("os.name");
+            if (osName.toLowerCase().contains("linux")){
+                Runtime.getRuntime().exec("clear");
+            }
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Iterator iterator = dbConfiguredDevices.entrySet().iterator();
 

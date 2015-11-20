@@ -21,11 +21,11 @@ public abstract class CommandHandler {
         if (telldus == null)
             telldus = Initialize.getTelldus();
 
-        if (device.getAction() == 0){
+        if (device.getAction().compareTo("OFF") == 0){
             iLog.info("Action was 0, trying to turn off device + " + device.getDeviceID());
             telldus.tdTurnOff(device.getDeviceID());
         }
-        if (device.getAction()== 1){
+        if (device.getAction().compareTo("ON")== 1){
             iLog.info("Action was 1, trying to turn on device + " + device.getDeviceID());
             telldus.tdTurnOn(device.getDeviceID());
         }

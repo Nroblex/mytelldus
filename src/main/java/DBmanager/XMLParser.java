@@ -32,16 +32,6 @@ import java.util.Map;
  */
 public class XMLParser {
 
-    private static final int MONDAY=1;
-    private static final int TUESDAY=2;
-    private static final int WEDNESDAY=3;
-    private static final int THURSDAY=4;
-    private static final int FRIDAY=5;
-    private static final int SATURDAY=6;
-    private static final int SUNDAY=7;
-
-
-
     private static String DEVICE_PATH="/devices/device";
 
     Logger iLog = LogManager.getLogger(XMLParser.class);
@@ -64,12 +54,13 @@ public class XMLParser {
         String weekDay = null;
         Integer dayOfWeek = DateTime.now().getDayOfWeek();
         String deviceId=null;
+        String id = null;
+        SchemaDevice dbSchemaDevice=null;
 
         DateTimeFormatter formatter = DateTimeFormat.forPattern("HH:mm:ss");
 
-
         Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
-        List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
+        //List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
 
 
         try {
@@ -77,6 +68,9 @@ public class XMLParser {
             Document doc = dBuilder.parse(xFile);
 
             XPath xPath = XPathFactory.newInstance().newXPath();
+
+            ///*/item[id/@isInStock='true']/category/text()
+           // String sql = "/devices[device/@weekday='torsdag']";
 
             NodeList deviceList = (NodeList) xPath.compile(DEVICE_PATH).evaluate(doc, XPathConstants.NODESET);
 
@@ -90,25 +84,32 @@ public class XMLParser {
                         String dtTimePoint =  xPath.compile("./timepoint").evaluate(deviceNode);
                         timePoint = formatter.parseDateTime(dtTimePoint);
                         action = xPath.compile("./action").evaluate(deviceNode);
+                        id = xPath.compile("./id").evaluate(deviceNode);
                     }
                 }
 
                 if (deviceNode.hasAttributes()){
                     NamedNodeMap namedNodeMap=deviceNode.getAttributes();
                     for (int n = 0; n<namedNodeMap.getLength(); n++){
-                        if (namedNodeMap.item(n).getNodeName().compareTo("id") == 0)
-                            deviceId = namedNodeMap.item(n).getNodeValue();
+                        if (namedNodeMap.item(n).getNodeName().compareTo("deviceId") == 0)
+                            deviceId = namedNodeMap.item(n).getNodeValue(); //
                         else
-                            weekDay =  namedNodeMap.item(n).getNodeValue();
+                            weekDay =  namedNodeMap.item(n).getNodeValue().toLowerCase();
                     }
                 }
 
+                if (weekDay.isEmpty() || weekDay==null)
+                    continue;
 
+                //Är det rätt dag idag?
 
-                SchemaDevice dbSchemaDevice = new SchemaDevice(Integer.parseInt(deviceId), timePoint, Integer.parseInt(action) );
-                deviceMap.put(Integer.parseInt(deviceId), dbSchemaDevice);
-
-                mapList.add(deviceMap);
+                if (WeekDays.valueOf(weekDay).getWeekDay() == dayOfWeek){
+                    //Är tiden senare än nu ?
+                    if (timePoint.toLocalTime().getMillisOfDay() > DateTime.now().getMillisOfDay()) {
+                        dbSchemaDevice = new SchemaDevice(Integer.parseInt(deviceId), timePoint, action);
+                        deviceMap.put(Integer.parseInt(id), dbSchemaDevice);
+                    }
+                }
 
 
             }
@@ -124,6 +125,7 @@ public class XMLParser {
         } catch (XPathExpressionException e) {
             iLog.error(e);
         }
+
 
         return deviceMap;
 

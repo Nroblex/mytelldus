@@ -63,7 +63,7 @@ public class DBManager implements ConnectionManager{
                                             rs.getInt("ID"),
                                             rs.getInt("deviceID"),
                                             formatter.parseDateTime(rs.getString("timePoint")),
-                                            rs.getInt("action"),rs.getInt("dayofweek")
+                                            rs.getString("action"),rs.getInt("dayofweek")
                                         )
                         );
                 mapList.add(deviceMap);
@@ -104,7 +104,7 @@ public class DBManager implements ConnectionManager{
                                                 rs.getInt("ID"),
                                                 rs.getInt("deviceID"),
                                                 dtFormatter.parseDateTime(rs.getString("timePoint")),
-                                                rs.getInt("action"), rs.getInt("dayofweek")
+                                                rs.getString("action"), rs.getInt("dayofweek")
                                         )
                         );
 
