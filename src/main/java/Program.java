@@ -4,6 +4,7 @@ import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.joda.time.DateTime;
 import scheduler.TimeParser;
+import utils.ConfigTimes;
 import utils.Util;
 
 import java.io.*;
@@ -24,14 +25,15 @@ public class Program {
 
 
         setupLog4JLogging(Util.getSetting("logSettingsPath", ""));
-        iLog.info("Starting...");
 
 
-        DateTime today = DateTime.now();
-        System.out.println(today.dayOfWeek().get() );
-
-
-        new TimeParser();
+        if (args.length>0){
+            iLog.info("Starting command mode");
+            handleCommand(args);
+        } else {
+            iLog.info("Starting timeparser!");
+            new TimeParser();
+        }
 
         //new ParseScheduler().run();
 
@@ -44,8 +46,25 @@ public class Program {
 
     }
 
+    private static void handleCommand(String[] args) {
+
+        for (String st : args){
+            if (st.compareTo("-C") == 0 || st.compareTo("-c") == 0){
+                runConfiguration();
+                break;
+            } else{
+                Util.printMessage("Commands to use -c [configurationMode]");
+            }
+        }
+
+    }
+
+    private static void runConfiguration() {
+
+        ConfigTimes.runConfiguration();
 
 
+    }
 
 
     private static void startADevice(int i) throws IOException{

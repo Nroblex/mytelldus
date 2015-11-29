@@ -21,10 +21,7 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by ueh093 on 11/19/15.
@@ -84,7 +81,8 @@ public class XMLParser {
                         String dtTimePoint =  xPath.compile("./timepoint").evaluate(deviceNode);
                         timePoint = formatter.parseDateTime(dtTimePoint);
                         action = xPath.compile("./action").evaluate(deviceNode);
-                        id = xPath.compile("./id").evaluate(deviceNode);
+                        //id = xPath.compile("./id").evaluate(deviceNode);
+                        id =String.valueOf(new Random().nextInt());
                     }
                 }
 
