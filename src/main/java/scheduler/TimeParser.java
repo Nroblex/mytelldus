@@ -33,7 +33,7 @@ public class TimeParser extends CommandHandler {
 
     private Timer timerCheckCurrentTime = new Timer("Actual time");
     private Timer timerCheckdatabaseConfig = new Timer("Read database config");
-    private String dbFile = null;
+    private String schemadevice = null;
     private Map<Integer, SchemaDevice> dbConfiguredDevices = new HashMap<Integer, SchemaDevice>();
     private Integer checkDBTimeinterval ;
     private DBManager dbManager;
@@ -53,9 +53,9 @@ public class TimeParser extends CommandHandler {
     }
 
     private void initDBConfiguration() {
-        dbFile = Util.getSetting("dbfile");
+        schemadevice = Util.getSetting("schemadevice");
 
-        if (dbFile.endsWith(".db")) {
+        if (schemadevice.endsWith(".db")) {
             iLog.info("Application is running with SQLite database");
             Util.printMessage("Reading from SQLite database.");
         }
@@ -83,10 +83,10 @@ public class TimeParser extends CommandHandler {
 
                         String time = timeFormat.format(calendar.getTimeInMillis());
 
-                        if (dbFile.endsWith(".db"))
+                        if (schemadevice.endsWith(".db"))
                             dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNow();
                         else
-                            dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNowXML(dbFile);
+                            dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNowXML();
 
                         if (dbConfiguredDevices.size() > 0 && dbConfiguredDevices != null) {
                             logInformation();

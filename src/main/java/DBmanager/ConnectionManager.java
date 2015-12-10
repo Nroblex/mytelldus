@@ -9,5 +9,5 @@ public interface ConnectionManager {
     void connect();
 
     Map<Integer, SchemaDevice> getScheduledDevicesLaterThanNow();
-    Map<Integer,SchemaDevice> getScheduledDevicesLaterThanNowXML(String xmlFile);
+    Map<Integer,SchemaDevice> getScheduledDevicesLaterThanNowXML();
 }

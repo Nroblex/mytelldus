@@ -32,7 +32,7 @@ public abstract class CommandHandler {
         }
 
 
-        if (Util.getSetting("dbfile").endsWith(".db"))
+        if (Util.getSetting("schemadevice").endsWith(".db"))
             updateConfiguration(device);
 
 

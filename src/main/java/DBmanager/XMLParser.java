@@ -30,19 +30,63 @@ import java.util.*;
 public class XMLParser {
 
     private static String DEVICE_PATH="/devices/device";
+    static Logger iLog = LogManager.getLogger(XMLParser.class);
 
-    Logger iLog = LogManager.getLogger(XMLParser.class);
 
-    private String pathToXml;
+    public static List<Devices> xmlDeviceToObject(){
+        List<Devices> devices = new ArrayList<Devices>();
 
-    public XMLParser(String pathToXml){
-        this.pathToXml=pathToXml;
+        File xFile = new File(Util.getSetting("device"));
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = null;
+
+        try {
+            dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xFile);
+
+            XPath xPath = XPathFactory.newInstance().newXPath();
+            NodeList deviceList = (NodeList) xPath.compile(DEVICE_PATH).evaluate(doc, XPathConstants.NODESET);
+
+            for (int nCount = 0; nCount<deviceList.getLength(); nCount++){
+
+                Node deviceNode = deviceList.item(nCount);
+
+                if (deviceNode.getNodeType() == Node.ELEMENT_NODE){
+
+                    Integer id =  Integer.parseInt(xPath.compile("./id").evaluate(deviceNode));
+                    String name = xPath.compile("./name").evaluate(deviceNode);
+                    String comment = xPath.compile("./comment").evaluate(deviceNode);
+
+                    Devices d = new Devices();
+                    d.setId(id);
+                    d.setName(name);
+                    d.setComment(comment);
+
+                    devices.add(d);
+
+                }
+
+            }
+
+        } catch (ParserConfigurationException e) {
+            iLog.error(e);
+        } catch (SAXException e) {
+            iLog.error(e);
+        } catch (IOException e) {
+            iLog.error(e);
+        } catch (XPathExpressionException e) {
+            iLog.error(e);
+        }
+
+
+        return devices;
     }
 
-    public  Map<Integer, SchemaDevice> xmlFileToObject(){
+
+    public static Map<Integer, SchemaDevice> xmlSchemaDeviceToObject(){
 
 
-        File xFile = new File(pathToXml);
+        File xFile = new File(Util.getSetting("schemadevice"));
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = null;
 
@@ -57,8 +101,6 @@ public class XMLParser {
         DateTimeFormatter formatter = DateTimeFormat.forPattern("HH:mm:ss");
 
         Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
-        //List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
-
 
         try {
             dBuilder = dbFactory.newDocumentBuilder();
@@ -79,10 +121,13 @@ public class XMLParser {
                     if (deviceNode.getNodeName().compareTo("device")==0) {
 
                         String dtTimePoint =  xPath.compile("./timepoint").evaluate(deviceNode);
+                        if (dtTimePoint.length() == 5)
+                            dtTimePoint = dtTimePoint.concat(":00");
+
                         timePoint = formatter.parseDateTime(dtTimePoint);
                         action = xPath.compile("./action").evaluate(deviceNode);
-                        //id = xPath.compile("./id").evaluate(deviceNode);
-                        id =String.valueOf(new Random().nextInt());
+                        id = xPath.compile("./id").evaluate(deviceNode);
+                        //id =String.valueOf(new Random().nextInt());
                     }
                 }
 

@@ -13,7 +13,7 @@
     </device>
     <device deviceId="3" weekday="torsdag">
         <id>102</id>
-        <timepoint>20:13:10</timepoint>
+        <timepoint>20:13</timepoint>
         <action>OFF</action>
     </device>
     <device deviceId="2" weekday="fredag">

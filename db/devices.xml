@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<devices>
+    <device>
+        <id>2</id>
+        <name>mitt skribord</name>
+        <comment>nexa kontakt vid mitt skrivbord.</comment>
+    </device>
+
+    <device>
+        <id>3</id>
+        <name>Alexandras skribord</name>
+        <comment>nexa kontakt vid Alexandras skrivbord.</comment>
+    </device>
+
+    <device>
+        <id>4</id>
+        <name>Vardagsrum</name>
+        <comment></comment>
+    </device>
+
+    <device>
+        <id>10</id>
+        <name>kitchen</name>
+        <comment>Infälld nexakontakt.</comment>
+    </device>
+
+</devices>

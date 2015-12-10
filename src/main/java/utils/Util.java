@@ -37,6 +37,9 @@ public class Util {
     public static void printMessage( String msg ){
         System.out.println(msg);
     }
+    public static void print(String msg){
+        System.out.print(msg);
+    }
 
     public static Integer getIntSetting(String key){
         return Integer.parseInt(getSetting(key, ""));
@@ -75,9 +78,14 @@ public class Util {
                 properties.setProperty("hostname", "10.0.1.48");
             }
 
-            if (properties.getProperty("dbfile") == null){
-                properties.setProperty("dbfile", "config/configdb.db");
+            if (properties.getProperty("schemadevice") == null){
+                properties.setProperty("schemadevice", "db/configdb.db");
             }
+
+            if (properties.getProperty("devices") == null){
+                properties.setProperty("devices", "db/devices.xml");
+            }
+
 
             if (properties.get("dbchecktimeinterval") == null){
                 properties.setProperty("dbchecktimeinterval", "10000"); //Default kollas databasen var 10 sek.

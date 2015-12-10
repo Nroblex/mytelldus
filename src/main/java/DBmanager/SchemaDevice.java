@@ -5,7 +5,7 @@
  /**
  * Created by ueh093 on 10/23/15.
  */
-public class SchemaDevice  {
+public class SchemaDevice {
 
      private Integer ID;
      private Integer deviceID;
@@ -14,6 +14,11 @@ public class SchemaDevice  {
      private String action;
      private DateTime updatedAt;
      private Integer dayOfWeek;
+     private String nameOfWeekday;
+
+     public SchemaDevice() {
+
+     }
 
 
      public Integer getDayOfWeek() {
@@ -81,6 +86,11 @@ public class SchemaDevice  {
          this.deviceID = deviceID;
      }
 
+     public String getNameOfWeekday() {
+         return nameOfWeekday;
+     }
 
-
+     public void setNameOfWeekday(String nameOfWeekday) {
+         this.nameOfWeekday = nameOfWeekday;
+     }
  }
