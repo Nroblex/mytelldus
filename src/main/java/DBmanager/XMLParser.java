@@ -32,6 +32,7 @@ public class XMLParser {
     private static String DEVICE_PATH="/devices/device";
     static Logger iLog = LogManager.getLogger(XMLParser.class);
 
+    private static HashMap<Integer, String> deviceNameById = null;
 
     public static List<Devices> xmlDeviceToObject(){
         List<Devices> devices = new ArrayList<Devices>();
@@ -95,6 +96,7 @@ public class XMLParser {
         String weekDay = null;
         Integer dayOfWeek = DateTime.now().getDayOfWeek();
         String deviceId=null;
+        String deviceName = null;
         String id = null;
         SchemaDevice dbSchemaDevice=null;
 
@@ -141,6 +143,11 @@ public class XMLParser {
                     }
                 }
 
+                //Ta reda på deviceNamnet...
+                if (deviceId != null ){
+                    deviceName = getDeviceNameFromDeviceId(deviceId);
+                }
+
                 if (weekDay.isEmpty() || weekDay==null)
                     continue;
 
@@ -172,6 +179,58 @@ public class XMLParser {
 
         return deviceMap;
 
+    }
+
+    //Läser in deviceconfig till hashmap.
+    public static void readXMLDeviceConfig(){
+        String deviceName = "";
+        String deviceId = "";
+
+        File xFile = new File(Util.getSetting("device"));
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = null;
+
+        deviceNameById = null;
+        deviceNameById = new HashMap<>();
+
+        try {
+
+            dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xFile);
+            XPath xPath = XPathFactory.newInstance().newXPath();
+
+            NodeList deviceList = (NodeList) xPath.compile(DEVICE_PATH).evaluate(doc, XPathConstants.NODESET);
+
+            for (int nCount = 0; nCount<deviceList.getLength(); nCount++) {
+                Node deviceNode = deviceList.item(nCount);
+
+                if (deviceNode.getNodeType() == Node.ELEMENT_NODE) {
+                    if (deviceNode.getNodeName().compareTo("device") == 0) {
+                        deviceName =  xPath.compile("./name").evaluate(deviceNode);
+                        deviceId = xPath.compile("./id").evaluate(deviceNode);
+
+                        deviceNameById.put(Integer.parseInt(deviceId), deviceName);
+
+                    }
+                }
+
+            }
+
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private static String getDeviceNameFromDeviceId(String deviceId) {
+       return "";
     }
 
 }

@@ -38,6 +38,8 @@ public class TimeParser extends CommandHandler {
     private Integer checkDBTimeinterval ;
     private DBManager dbManager;
 
+    private Integer dummyCounter = 0;
+
     public TimeParser() {
 
         checkDBTimeinterval=Util.getIntSetting("dbchecktimeinterval");
@@ -91,7 +93,15 @@ public class TimeParser extends CommandHandler {
                         if (dbConfiguredDevices.size() > 0 && dbConfiguredDevices != null) {
                             logInformation();
                         } else {
-                            Util.printMessage("No more activities for today!");
+                            if (dummyCounter==0){
+                                Util.printMessage("No more activites for today...");
+                            }
+                            dummyCounter++;
+                            if (dummyCounter >= 1000) {
+                                iLog.info("\n\nLogging runtime information!!, app is alive and running");
+                                iLog.info("\n\n");
+                                dummyCounter=0;
+                            }
                         }
 
                     }
@@ -188,6 +198,7 @@ public class TimeParser extends CommandHandler {
             Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
             
             Integer secDiff = actualDevice.getValue().getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
+
             Util.printMessage(String.format("Counting seconds, : device {%s} sec = [%s] action -> [%s] ==TID== > [%s]",
                     String.valueOf(actualDevice.getValue().getDeviceID()),
                     String.valueOf(secDiff),

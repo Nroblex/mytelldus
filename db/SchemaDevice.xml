@@ -26,9 +26,9 @@
         <timepoint>20:13:10</timepoint>
         <action>OFF</action>
     </device>
-    <device deviceId="3" weekday="fredag">
+    <device deviceId="3" weekday="måndag">
         <id>105</id>
-        <timepoint>20:22:10</timepoint>
+        <timepoint>15:22:10</timepoint>
         <action>ON</action>
     </device>
     <device deviceId="3" weekday="fredag">

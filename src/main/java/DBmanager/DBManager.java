@@ -19,6 +19,10 @@ public class DBManager implements ConnectionManager{
     Logger iLog = LogManager.getLogger(DBManager.class);
     Connection connection=null;
 
+    public DBManager(){
+        XMLParser.readXMLDeviceConfig();
+    }
+
     public void connect() {
 
         try {
