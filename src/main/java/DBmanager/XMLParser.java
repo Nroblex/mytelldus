@@ -145,7 +145,7 @@ public class XMLParser {
 
                 //Ta reda på deviceNamnet...
                 if (deviceId != null ){
-                    deviceName = getDeviceNameFromDeviceId(deviceId);
+                    deviceName = getDeviceNameFromDeviceId(Integer.parseInt(deviceId));
                 }
 
                 if (weekDay.isEmpty() || weekDay==null)
@@ -156,13 +156,15 @@ public class XMLParser {
                 if (WeekDays.valueOf(weekDay).getWeekDay() == dayOfWeek){
                     //Är tiden senare än nu ?
                     if (timePoint.toLocalTime().getMillisOfDay() > DateTime.now().getMillisOfDay()) {
-                        dbSchemaDevice = new SchemaDevice(Integer.parseInt(deviceId), timePoint, action);
+                        dbSchemaDevice = new SchemaDevice(Integer.parseInt(deviceId), deviceName, timePoint, action);
                         deviceMap.put(Integer.parseInt(id), dbSchemaDevice);
                     }
                 }
 
 
             }
+
+
 
 
 
@@ -229,8 +231,8 @@ public class XMLParser {
 
     }
 
-    private static String getDeviceNameFromDeviceId(String deviceId) {
-       return "";
+    private static String getDeviceNameFromDeviceId(Integer deviceId) {
+        return deviceNameById.get(deviceId);
     }
 
 }

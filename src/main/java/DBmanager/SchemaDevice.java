@@ -58,8 +58,8 @@ public class SchemaDevice {
         this.ID = ID; this.deviceID=deviceID; this.timePoint=timePoint; this.action=action; this.dayOfWeek=dayOfWeek;
     }
 
-     public SchemaDevice(Integer deviceID, DateTime timePoint, String action){
-         this.deviceID=deviceID; this.timePoint=timePoint; this.action=action;
+     public SchemaDevice(Integer deviceID, String deviceName, DateTime timePoint, String action){
+         this.deviceID=deviceID; this.timePoint=timePoint; this.action=action; this.deviceName=deviceName;
      }
 
      public String getDeviceName() {

@@ -199,8 +199,8 @@ public class TimeParser extends CommandHandler {
             
             Integer secDiff = actualDevice.getValue().getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
 
-            Util.printMessage(String.format("Counting seconds, : device {%s} sec = [%s] action -> [%s] ==TID== > [%s]",
-                    String.valueOf(actualDevice.getValue().getDeviceID()),
+            Util.printMessage(String.format("Counting seconds, : device {%s} sec = [%s] action -> [%s] == TIME == > [%s]",
+                    String.valueOf(actualDevice.getValue().getDeviceName()),
                     String.valueOf(secDiff),
                     String.valueOf(actualDevice.getValue().getAction() ),
                     actualDevice.getValue().getTimePoint().toLocalTime()));
