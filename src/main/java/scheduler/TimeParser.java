@@ -188,6 +188,7 @@ public class TimeParser extends CommandHandler {
             Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
             
             Integer secDiff = actualDevice.getValue().getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
+
             Util.printMessage(String.format("Counting seconds, : device {%s} sec = [%s] action -> [%s] ==TID== > [%s]",
                     String.valueOf(actualDevice.getValue().getDeviceID()),
                     String.valueOf(secDiff),

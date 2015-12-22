@@ -54,8 +54,8 @@ public class SchemaDevice {
          this.updatedAt = updatedAt;
      }
 
-     public SchemaDevice(Integer ID, Integer deviceID, DateTime timePoint, String action, Integer dayOfWeek){
-        this.ID = ID; this.deviceID=deviceID; this.timePoint=timePoint; this.action=action; this.dayOfWeek=dayOfWeek;
+     public SchemaDevice(Integer ID, Integer deviceID, String deviceName, DateTime timePoint, String action, Integer dayOfWeek){
+        this.ID = ID; this.deviceID=deviceID; this.deviceName = deviceName; this.timePoint=timePoint; this.action=action; this.dayOfWeek=dayOfWeek;
     }
 
      public SchemaDevice(Integer deviceID, DateTime timePoint, String action){
@@ -63,6 +63,9 @@ public class SchemaDevice {
      }
 
      public String getDeviceName() {
+         if (deviceName==null){
+             deviceName="apa";
+         }
          return deviceName;
      }
 

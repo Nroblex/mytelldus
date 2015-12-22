@@ -57,6 +57,7 @@ public class DBManager implements ConnectionManager{
                                         (
                                             rs.getInt("ID"),
                                             rs.getInt("deviceID"),
+                                                rs.getString("DeviceName"),
                                             formatter.parseDateTime(rs.getString("timePoint")),
                                             rs.getString("action"),rs.getInt("dayofweek")
                                         )
@@ -98,6 +99,7 @@ public class DBManager implements ConnectionManager{
                                         (
                                                 rs.getInt("ID"),
                                                 rs.getInt("deviceID"),
+                                                rs.getString("DeviceName"),
                                                 dtFormatter.parseDateTime(rs.getString("timePoint")),
                                                 rs.getString("action"), rs.getInt("dayofweek")
                                         )
@@ -122,6 +124,7 @@ public class DBManager implements ConnectionManager{
         int x = 1;
 
     }
+
 
 
     public void UpdateConfiguration(SchemaDevice device) {
