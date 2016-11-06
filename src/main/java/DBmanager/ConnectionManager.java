@@ -8,6 +8,6 @@ import java.util.Map;
 public interface ConnectionManager {
     void connect();
 
-    Map<Integer, SchemaDevice> getScheduledDevicesLaterThanNow();
-    Map<Integer,SchemaDevice> getScheduledDevicesLaterThanNowXML();
+    //Map<Integer, SchemaDevice> getScheduledDevicesLaterThanNow();
+    Map<Integer,Device> getScheduledDevicesLaterThanNowXML();
 }

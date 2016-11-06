@@ -6,13 +6,28 @@
 
     <groupId>se.selborn.mytelldus</groupId>
     <artifactId>mytelldus</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
 
 
     <prerequisites>
         <maven>3.0.3</maven>
     </prerequisites>
 
+    <!--
+    <repositories>
+        <repository>
+            <id>my-local-repo</id>
+            <url>http://localhost:8090/repository/internal</url>
+            <name>lokal-repo</name>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    -->
 
     <dependencies>
         <dependency>
@@ -30,6 +45,13 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.8.11.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>se.selborn.utils</groupId>
+            <artifactId>selborn-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -60,6 +82,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -35,7 +35,7 @@ public class EventFactory {
             }
 
             if(event == null) {
-                log.warn("Unhandled event of type "+type);
+                log.warn("Unhandled event of EventType "+type);
                 return null;
             }
 

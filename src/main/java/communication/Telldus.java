@@ -56,8 +56,8 @@ public class Telldus implements TelldusInterface {
     }
 
     /**
-     * Register a listener for a specific type of events.
-     * The type of listener is determined by the interface. All listeners
+     * Register a listener for a specific EventType of events.
+     * The EventType of listener is determined by the interface. All listeners
      * are based on the TelldusEvent.Listener interface, but implementing that
      * by it self will not accomplish anything. Instead, implement one or
      * more of the TDxxxEvent.Listener interfaces.
@@ -221,7 +221,7 @@ public class Telldus implements TelldusInterface {
      * @return the the value as a human readable string, example "128" for 50%
      */
     public String tdLastSentValue(int deviceId) {
-        Message m = new Message("tdLearn");
+        Message m = new Message("tdLastSentValue");
         m.addArgument(deviceId);
 
         return telldusServer.getStringFromService(m);
@@ -256,7 +256,7 @@ public class Telldus implements TelldusInterface {
     }
 
     /**
-     * Returns which type the device is. The device is one of Protocol.DeviceType
+     * Returns which EventType the device is. The device is one of Protocol.DeviceType
      */
     public Protocol.DeviceType tdGetDeviceType(int intDeviceId) {
         Message msg = new Message("tdGetDeviceType");
@@ -505,7 +505,7 @@ public class Telldus implements TelldusInterface {
 
     /**
      * Get one of the supported sensor values from a sensor. Make sure it support
-     * the value type first by calling tdSensor(). The triplet protocol,
+     * the value EventType first by calling tdSensor(). The triplet protocol,
      * model, and id together identifies a sensor.
      *
      * Added in version 2.1.0.

@@ -1,28 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <devices>
-    <device>
-        <id>2</id>
-        <name>mitt skribord</name>
-        <comment>nexa kontakt vid mitt skrivbord.</comment>
-    </device>
 
-    <device>
-        <id>3</id>
-        <name>Alexandras skribord</name>
-        <comment>nexa kontakt vid Alexandras skrivbord.</comment>
-    </device>
-
-    <device>
-        <id>4</id>
-        <name>Vardagsrum</name>
-        <comment></comment>
-    </device>
-
-    <device>
-        <id>10</id>
-        <name>kitchen</name>
-        <comment>Infälld nexakontakt.</comment>
-    </device>
+<!-- Config för Kontakt-skrivbord -->
+	<device deviceId='5' weekday='Måndag'>
+		<id>494</id>
+		<timepoint>22:00</timepoint>
+ 		<action>ON</action>
+	</device>
+	<device deviceId='5' weekday='Måndag'>
+		<id>503</id>
+		<timepoint>01:21</timepoint>
+ 		<action>OFF</action>
+	</device>
+	<device deviceId='5'>
+		<id>503</id>
+		<timepoint>01:21</timepoint>
+ 		<action>OFF</action>
+	</device>
 
 </devices>

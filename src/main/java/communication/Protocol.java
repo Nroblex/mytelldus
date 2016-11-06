@@ -44,7 +44,7 @@ public class Protocol {
                 if (dm.code() == code)
                     return dm;
             }
-            throw new IllegalArgumentException("Unknown sensor value type " +code);
+            throw new IllegalArgumentException("Unknown sensor value EventType " +code);
         }
 
     }
@@ -92,7 +92,7 @@ public class Protocol {
                 if (dm.code() == code)
                     return dm;
             }
-            throw new IllegalArgumentException("Unknown device type " +code);
+            throw new IllegalArgumentException("Unknown device EventType " +code);
         }
     };
 
@@ -111,7 +111,7 @@ public class Protocol {
                 if (dm.code() == code)
                     return dm;
             }
-            throw new IllegalArgumentException("Unknown controller type " +code);
+            throw new IllegalArgumentException("Unknown controller EventType " +code);
         }
     };
 
@@ -158,7 +158,7 @@ public class Protocol {
                 if (dm.code() == code)
                     return dm;
             }
-            throw new IllegalArgumentException("Unknown change type " +code);
+            throw new IllegalArgumentException("Unknown change EventType " +code);
         }
     };
 

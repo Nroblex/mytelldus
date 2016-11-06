@@ -1,13 +1,25 @@
 package DBmanager;
 
+import java.util.List;
+
 /**
  * Created by anders on 12/2/15.
  */
-public class Devices {
+public class Device {
 
     private int Id;
     private String name;
     private String comment;
+    private List<SchemaDevice> schemaDevices;
+
+
+    public List<SchemaDevice> getSchemaDevices() {
+        return schemaDevices;
+    }
+
+    public void setSchemaDevices(List<SchemaDevice> schemaDevices) {
+        this.schemaDevices = schemaDevices;
+    }
 
     public int getId() {
         return Id;

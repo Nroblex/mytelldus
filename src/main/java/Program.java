@@ -3,6 +3,7 @@ import communication.Telldus;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
 import scheduler.TimeParser;
+import se.selborn.utils.Utils;
 import utils.Util;
 
 import java.io.*;
@@ -19,10 +20,14 @@ public class Program {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Starting");
-
+        Utils.printMessage("This is from Util-class");
 
         setupLog4JLogging(Util.getSetting("logSettingsPath", ""));
+
+        iLog.info("Starting up.");
+
+        //startADevice(2, false);
+        //initializeTest();
 
 
         if (args.length>0){
@@ -31,15 +36,7 @@ public class Program {
             iLog.info("Starting timeparser!");
             new TimeParser();
         }
-
-        //new ParseScheduler().run();
-
-        //initializeTest();
-
-        //startADevice(2);
-
-
-
+        
 
     }
 
@@ -96,6 +93,7 @@ public class Program {
         Integer eventPort = Integer.parseInt(Util.getSetting("eventPort"));
 
         Telldus iface = new Telldus(host, clientPort, eventPort);
+
         String name = iface.tdGetName(i);
 
 
@@ -109,13 +107,14 @@ public class Program {
             iface.tdTurnOn(i);
         else
             iface.tdTurnOff(i);
-        //iface.tdDim(i, 100);
-
 
         System.out.println(name);
 
-        iface.close();
-        System.exit(1);
+    }
+
+    private void checkFeatures(int deviceId){
+
+
 
     }
 
@@ -131,12 +130,19 @@ public class Program {
             for(int i = 0; i < devices; i++) {
                 int id = iface.tdGetDeviceId(i);
                 String name  = iface.tdGetName(id);
+
                 Protocol.DeviceType t = iface.tdGetDeviceType(id);
-                System.out.println(id+" : "+ name +" of type "+ t);
+                System.out.println(id+" : "+ name +" of EventType "+ t);
+
+                String lastSent = iface.tdLastSentValue(id);
+                System.out.println("Last sent value" + lastSent);
+
 
             }
 
             System.out.println("Start listening for events...");
+
+            iface.tdTurnOff(2);
 
 
         } catch (IOException e) {
@@ -148,13 +154,13 @@ public class Program {
 
     private static void setupLog4JLogging(String logFile) {
 
-        org.apache.log4j.Logger root = org.apache.log4j.Logger.getRootLogger();
-        root.addAppender(new ConsoleAppender(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN),
-                ConsoleAppender.SYSTEM_ERR));
+        //org.apache.log4j.Logger root = org.apache.log4j.Logger.getRootLogger();
+        //root.addAppender(new ConsoleAppender(new PatternLayout(PatternLayout.TTCC_CONVERSION_PATTERN),
+         //       ConsoleAppender.SYSTEM_ERR));
 
-        LogManager.getRootLogger().setLevel(Level.INFO);
-        LogManager.getRootLogger().setLevel(Level.TRACE);
-        LogManager.getRootLogger().setLevel(Level.DEBUG);
+        //LogManager.getRootLogger().setLevel(Level.INFO);
+        //LogManager.getRootLogger().setLevel(Level.TRACE);
+        //LogManager.getRootLogger().setLevel(Level.DEBUG);
 
         DOMConfigurator.configure(logFile);
 

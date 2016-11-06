@@ -18,7 +18,7 @@ public class Sensor {
     /**
      * Construct a Sensor from message. Assumes message has fields, in order:
      *
-     *	String protocol
+     *	String protocolclear
      *	String model
      *	Int id
      *	Int dataTypes

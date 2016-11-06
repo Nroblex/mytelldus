@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--id är ett unikt löpnummer-->
+<Devices>
+	<DeviceConfig>
+    	<DeviceName>köket-matplats-ljusstake</DeviceName>
+    	<DeviceId>5</DeviceId>
+    	<Comment>Vid mitt skrivbord just nu.</Comment>
+	</DeviceConfig>
+    <DeviceConfig>
+        <DeviceName>Skrivbords-lampa</DeviceName>
+        <DeviceId>2</DeviceId>
+        <Comment>Lampa vid Anders Skrivbord.</Comment>
+    </DeviceConfig>
+</Devices>
+

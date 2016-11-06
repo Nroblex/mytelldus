@@ -19,6 +19,10 @@ public class DBManager implements ConnectionManager{
     Logger iLog = LogManager.getLogger(DBManager.class);
     Connection connection=null;
 
+    public DBManager(){
+        XMLParser.readXMLDeviceConfig();
+    }
+
     public void connect() {
 
         try {
@@ -32,89 +36,8 @@ public class DBManager implements ConnectionManager{
 
     }
 
-    public Map<Integer, SchemaDevice> getScheduledDevicesLaterThanNowXML() {
-        return XMLParser.xmlSchemaDeviceToObject();
-    }
-
-
-    public List<Map<Integer, SchemaDevice>> getAllScheduledDevices(){
-
-        Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
-        List<Map<Integer, SchemaDevice>> mapList = new ArrayList<Map<Integer, SchemaDevice>>();
-
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
-        if (connection == null)
-            connect();
-        try {
-            Statement stmt = connection.createStatement();
-
-            ResultSet rs = stmt.executeQuery("SELECT * FROM timeschema");
-            while (rs.next()){
-                deviceMap.put
-                        (
-                                rs.getInt("deviceID"),
-                                new SchemaDevice
-                                        (
-                                            rs.getInt("ID"),
-                                            rs.getInt("deviceID"),
-                                                rs.getString("DeviceName"),
-                                            formatter.parseDateTime(rs.getString("timePoint")),
-                                            rs.getString("action"),rs.getInt("dayofweek")
-                                        )
-                        );
-                mapList.add(deviceMap);
-            }
-
-        } catch (SQLException e) {
-            iLog.error(e);
-        }
-
-        return mapList;
-    }
-
-    public Map<Integer, SchemaDevice> getScheduledDevicesLaterThanNow(){
-
-        Map<Integer, SchemaDevice> deviceMap = new HashMap<Integer, SchemaDevice>();
-
-        int dayOfWeek = DateTime.now().getDayOfWeek();
-
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-mm-dd HH:mm:ss");
-        DateTimeFormatter dtFormatter = DateTimeFormat.forPattern("HH:mm:ss");
-        if (connection == null)
-            connect();
-        try {
-            Statement stmt = connection.createStatement();
-
-            String sqlQuery = "SELECT * FROM timeschema ts INNER JOIN devices dv ON dv.deviceId = ts.deviceId ";
-            sqlQuery+= " WHERE time(ts.timePoint) > time('now', 'localtime') ";
-            sqlQuery+= String.format(" AND dayofWeek = '%s' ",dayOfWeek);
-            sqlQuery+= "ORDER BY time('now','localtime')";
-
-            ResultSet rs = stmt.executeQuery(sqlQuery);
-            while (rs.next()){
-                deviceMap.put
-                        (
-                                rs.getInt("ID"),
-                                new SchemaDevice
-                                        (
-                                                rs.getInt("ID"),
-                                                rs.getInt("deviceID"),
-                                                rs.getString("DeviceName"),
-                                                dtFormatter.parseDateTime(rs.getString("timePoint")),
-                                                rs.getString("action"), rs.getInt("dayofweek")
-                                        )
-                        );
-
-
-            }
-
-        } catch (SQLException e) {
-            iLog.error(e);
-        }
-
-        sortDevices(deviceMap);
-
-        return deviceMap;
+    public Map<Integer, Device> getScheduledDevicesLaterThanNowXML() {
+        return XMLParser.xmlFilesToObject();
     }
 
     private void sortDevices(Map<Integer, SchemaDevice> deviceMap) {

@@ -1,7 +1,6 @@
 package scheduler;
 
 import DBmanager.DBManager;
-import DBmanager.Device;
 import DBmanager.SchemaDevice;
 import communication.CommandHandler;
 import org.apache.log4j.LogManager;
@@ -35,7 +34,7 @@ public class TimeParser extends CommandHandler {
     private Timer timerCheckCurrentTime = new Timer("Actual time");
     private Timer timerCheckdatabaseConfig = new Timer("Read database config");
     private String schemadevice = null;
-    private Map<Integer, Device> dbConfiguredDevices = new HashMap<Integer, Device>();
+    private Map<Integer, SchemaDevice> dbConfiguredDevices = new HashMap<Integer, SchemaDevice>();
     private Integer checkDBTimeinterval ;
     private DBManager dbManager;
 
@@ -44,10 +43,7 @@ public class TimeParser extends CommandHandler {
     public TimeParser() {
 
         checkDBTimeinterval=Util.getIntSetting("dbchecktimeinterval");
-
-        //Util.printMessage("Reading every: " + checkDBTimeinterval/1000 + " second");
-        iLog.info("Reading every: " + checkDBTimeinterval/1000 + " second.");
-
+        Util.printMessage("Reading every: " + checkDBTimeinterval/1000 + " second");
 
         timerCheckCurrentTime.scheduleAtFixedRate(timerTaskCheckCurrentTime, 1000, 1000); //startar om en sekund, kör varje sekund.
         timerCheckdatabaseConfig.scheduleAtFixedRate(timerTaskReadDatabaseConfig, 0, checkDBTimeinterval);
@@ -89,17 +85,10 @@ public class TimeParser extends CommandHandler {
 
                         String time = timeFormat.format(calendar.getTimeInMillis());
 
-
-                        dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNowXML();
-
-
-                        /*
                         if (schemadevice.endsWith(".db"))
                             dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNow();
                         else
                             dbConfiguredDevices = dbManager.getScheduledDevicesLaterThanNowXML();
-                        */
-
 
                         if (dbConfiguredDevices.size() > 0 && dbConfiguredDevices != null) {
                             logInformation();
@@ -137,7 +126,18 @@ public class TimeParser extends CommandHandler {
                 SwingUtilities.invokeAndWait(new Runnable() {
                     public void run() {
 
+                        //DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+                        //Calendar calendar = Calendar.getInstance();
+                        //calendar.getTime();
+                        //String time = timeFormat.format(calendar.getTimeInMillis());
+                       // System.out.println("Time is now: " + timeFormat.format(calendar.getTimeInMillis()));
+
+
                         executeIfOnTime();
+
+
+
+
 
                     }
                 });
@@ -158,41 +158,27 @@ public class TimeParser extends CommandHandler {
         Iterator iterator = dbConfiguredDevices.entrySet().iterator();
 
         while (iterator.hasNext()) {
+            Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
 
-            //Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
-            Map.Entry<Integer, Device> actualDevice = (Map.Entry)iterator.next();
+            if (actualDevice.getValue().getTimePoint().getSecondOfDay() == DateTime.now().getSecondOfDay()){
 
-            for (SchemaDevice schemaDevice : actualDevice.getValue().getSchemaDevices()) {
+                iLog.info("====EXECUTING====");
 
-                if (schemaDevice.getTimePoint().getSecondOfDay() == DateTime.now().getSecondOfDay()){
+                HandleConfiguredDevice(actualDevice.getValue());
 
-                    iLog.info("====EXECUTING==== for device = > " + actualDevice.getValue().getName());
-                    if (schemaDevice.getTimePoint().getSecondOfDay() == DateTime.now().getSecondOfDay()) {
-                        HandleConfiguredDevice(schemaDevice);
-                    }
-
-                    iLog.info("====END EXECUTING====");
-                }
-
+                iLog.info("====END EXECUTING====");
 
             }
 
-            //if (actualDevice.getValue().getTimePoint().getSecondOfDay() == DateTime.now().getSecondOfDay()){
-
-                //iLog.info("====EXECUTING==== for device = > " + actualDevice.getValue().getDeviceName());
-
-
-
-
-
-            }
+        }
 
     }
+
 
     private void logInformation()  {
 
 
-        //Util.printMessage(String.format("Det finns %s konfigurerade tider.", String.valueOf(dbConfiguredDevices.size())));
+        Util.printMessage(String.format("Det finns %s konfigurerade tider.", String.valueOf(dbConfiguredDevices.size())));
 
         //dbConfiguredDevices.forEach((k, v)->System.out.println("Key = " + k + " Value = " + v);
         try {
@@ -209,17 +195,20 @@ public class TimeParser extends CommandHandler {
 
         while (iterator.hasNext()) {
 
-            Map.Entry<Integer, Device> actualDevice = (Map.Entry) iterator.next();
+            Map.Entry<Integer, SchemaDevice> actualDevice = (Map.Entry) iterator.next();
+            
+            Integer secDiff = actualDevice.getValue().getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
 
-            for (SchemaDevice schemaDevice : actualDevice.getValue().getSchemaDevices()){
-
-                Integer secDiff = schemaDevice.getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
-
-                Util.printMessage(String.format("Device {%s} to be executed in %s secs",
-                        String.valueOf(actualDevice.getValue().getName()), String.valueOf(secDiff)));
-
-            }
-
+<<<<<<< HEAD
+            Util.printMessage(String.format("Counting seconds, : device {%s} sec = [%s] action -> [%s] ==TID== > [%s]",
+                    String.valueOf(actualDevice.getValue().getDeviceID()),
+=======
+            Util.printMessage(String.format("Counting seconds, : device {%s} sec = [%s] action -> [%s] == TIME == > [%s]",
+                    String.valueOf(actualDevice.getValue().getDeviceName()),
+>>>>>>> d93f8792d94d78192ec1cbf35a0fbc457d167dd9
+                    String.valueOf(secDiff),
+                    String.valueOf(actualDevice.getValue().getAction() ),
+                    actualDevice.getValue().getTimePoint().toLocalTime()));
 
         }
 

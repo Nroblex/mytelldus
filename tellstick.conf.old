@@ -1,0 +1,155 @@
+user = "nobody"
+group = "plugdev"
+deviceNode = "/dev/tellstick"
+ignoreControllerConfirmation = "false"
+device {
+  id = 1
+  name = "Example device"
+  controller = 0
+  protocol = "arctech"
+  model = "codeswitch"
+  parameters {
+    # devices = ""
+    house = "A"
+    unit = "1"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+device {
+  id = 2
+  name = "Julgran"
+  controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "953934"
+    unit = "2"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+
+device {
+ id = 10
+ name = "Kitchen"  
+controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "8827348"
+    unit = "10"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+device {
+  id = 3
+  name = "Stjärna"
+  controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "332233"
+    unit = "3"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+device {
+  id = 4
+  name = "Vardagsrum"
+  controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "77462"
+    unit = "4"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+device {
+  id = 5
+  name = "snowglobe"
+  controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "66211"
+    unit = "5"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+device {
+  id = 6
+  name = "downstairs"
+  controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "20937"
+    unit = "6"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+device {
+  id = 7
+  name = "DoorOpener"
+  controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "927"
+    unit = "7"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+device {
+  id = 8
+  name = "VAKT"
+  controller = 0
+  protocol = "arctech"
+  model = "selflearning-switch:nexa"
+  parameters {
+    # devices = ""
+    house = "7269"
+    unit = "8"
+    # code = ""
+    # system = ""
+    # units = ""
+    # fade = ""
+  }
+}
+controller {
+  id = 1
+  # name = ""
+  type = 2
+  serial = "A501WFON"
+}

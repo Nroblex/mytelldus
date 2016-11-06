@@ -3,6 +3,7 @@ package communication;
 import DBmanager.SchemaDevice;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import utils.Util;
@@ -47,8 +48,11 @@ public abstract class CommandHandler {
 
         if (device.getUpdatedAt() != null) {
             System.out.println("Last UpdatedTime is : " + device.getUpdatedAt().toLocalTime());
+            iLog.info("Last UpdatedTime is : " + device.getUpdatedAt().toLocalTime());
         } else {
             System.out.println("The deviceConfig was never updated!");
+            iLog.info(String.format("The deviceConfig for Device %s was never updated", device.getID()));
+            device.setUpdatedAt(DateTime.now());
         }
 
         ExecuteCommand(device);

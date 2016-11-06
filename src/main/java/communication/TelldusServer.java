@@ -70,10 +70,12 @@ public class TelldusServer implements Runnable {
      */
     public void run() {
         while (run) {
+            System.out.println("Running...");
             if (!events.connect()) {
                 // Connection failed; wait 1s and try again until it works out.
                 try {
                     Thread.sleep(1000);
+
                 } catch (Exception e) {
                 }
                 continue;
@@ -101,6 +103,7 @@ public class TelldusServer implements Runnable {
                     }
 
                     Message msg = new Message(bb);
+
                     if(!handleEvent(msg)) {
                         // Unhandled; clear out bb
                         log.info("Unhandled event. "+bb.remaining()+" bytes data left in buffer, throwing it away");
@@ -140,8 +143,11 @@ public class TelldusServer implements Runnable {
 
         if (event.toString().length()> 0) {
 
+            //Printing the event
             //log.info("An event was received -> " +event);
             //log.info("");
+            log.info(event.getEventType() + "  --> " + event );
+
 
 
         }
