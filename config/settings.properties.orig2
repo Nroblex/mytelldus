@@ -1,5 +1,5 @@
 #Automatic created configuration file.
-#Sun Nov 13 15:33:16 CET 2016
+#Sun Nov 13 11:11:30 CET 2016
 deviceconfig=db/Device.xml
 dbchecktimeinterval=10000
 schemadevice=db/SchemaDevice.xml
@@ -8,4 +8,4 @@ clientPort=9998
 eventPort=9999
 logSettingsPath=config/log4j.xml
 hostname=10.0.1.48
-logtemperature=TRUE
+devices=db/Device.xml

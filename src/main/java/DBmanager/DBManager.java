@@ -14,29 +14,24 @@ import java.util.Date;
 /**
  * Created by ueh093 on 10/22/15.
  */
-public class DBManager implements ConnectionManager{
+public class DBManager extends ConnectDB {
 
-    Logger iLog = LogManager.getLogger(DBManager.class);
-    Connection connection=null;
+    static Logger iLog = LogManager.getLogger(DBManager.class);
+    private static DBManager instance = null;
 
-    public DBManager(){
-        XMLParser.readXMLDeviceConfig();
-    }
-
-    public void connect() {
-
-        try {
-            Class.forName("org.sqlite.JDBC");
-            connection = DriverManager.getConnection("jdbc:sqlite:db/configdb.db");
-        } catch (ClassNotFoundException e) {
-            iLog.error(e);
-        } catch (SQLException e) {
-            iLog.error(e);
+    public static DBManager getInstance() {
+        if (instance == null){
+            instance = new DBManager();
         }
-
+        return instance;
     }
 
-    public Map<Integer, Device> getScheduledDevicesLaterThanNowXML() {
+    private DBManager(){
+        //XMLParser.readXMLDeviceConfig();
+    }
+
+
+    public static Map<Integer, Device> getScheduledDevicesLaterThanNowXML() {
         return XMLParser.xmlFilesToObject();
     }
 
@@ -50,15 +45,14 @@ public class DBManager implements ConnectionManager{
 
 
 
-    public void UpdateConfiguration(SchemaDevice device) {
+    public static void UpdateConfiguration(SchemaDevice device) {
         String sql = "UPDATE timeschema SET updatedAt = ? Where ID = ?";
-
-        if (connection==null)
-            connect();
 
         try {
 
-            PreparedStatement stmt = connection.prepareStatement(sql);
+
+
+            PreparedStatement stmt = dbConnect().prepareStatement(sql);
             stmt.setTimestamp(1, new Timestamp((new Date().getTime())));
             stmt.setInt(2, device.getID());
 
@@ -72,4 +66,23 @@ public class DBManager implements ConnectionManager{
         }
 
     }
+
+    public static void saveTemperature(double temperature, DateTime timepoint){
+        String sql = "INSERT INTO temperature (temp, tidpunkt) VALUES (?, ?)";
+
+        try {
+
+            PreparedStatement stmt = dbConnect().prepareStatement(sql);
+
+            stmt.setDouble(1, temperature);
+            stmt.setTimestamp(2, new Timestamp(timepoint.getMillis()));
+
+            stmt.execute();
+
+        } catch (SQLException e) {
+            iLog.error(e);
+        }
+    }
+
+
 }

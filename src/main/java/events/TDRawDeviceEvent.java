@@ -11,7 +11,7 @@ public class TDRawDeviceEvent extends TelldusEvent {
     private int controllerId;
 
     public TDRawDeviceEvent(Message msg) {
-        super("TDRawDeviceEvent");
+        super(EventType.RawDeviceEvent);
         data = msg.takeString();
         controllerId = msg.takeInt();
     }

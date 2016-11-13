@@ -12,7 +12,7 @@ public class TDDeviceChangeEvent extends TelldusDeviceEvent {
     private Protocol.ChangeType changeType;
 
     public TDDeviceChangeEvent(Message msg) {
-        super("TDDeviceChangeEvent", msg.takeInt());
+        super(EventType.DeviceChangeEvent, msg.takeInt());
 		/* In service code, changeEvent is called eventDeviceChanges, which would
 		 * imply multiple changes (which doesn't make sense though, since values are
 		 * not bit-weighted).

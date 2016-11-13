@@ -36,7 +36,7 @@ public class Program {
             iLog.info("Starting timeparser!");
             new TimeParser();
         }
-        
+
 
     }
 

@@ -9,10 +9,11 @@ import messages.Message;
 public class TDDeviceEvent extends TelldusDeviceEvent {
 
     private Protocol.DeviceMethod method; // or state..
+
     private String stateValue;
 
     public TDDeviceEvent(Message msg) {
-        super("TDDeviceEvent", msg.takeInt());
+        super(EventType.DeviceEvent, msg.takeInt());
 		/* In callback code the method is called 'deviceState',
 		 * In service code it is called eventState, which is always
 		 * set to one of our DeviceMethod.* enums.

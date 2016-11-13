@@ -6,8 +6,8 @@ package events;
 public abstract class TelldusDeviceEvent extends TelldusEvent {
     protected int deviceId;
 
-    public TelldusDeviceEvent(String type, int deviceId) {
-        super(type);
+    public TelldusDeviceEvent(EventType eventType, int deviceId) {
+        super(eventType);
         this.deviceId = deviceId;
     }
 

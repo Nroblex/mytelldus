@@ -248,6 +248,7 @@ public class XMLParser {
                 Node deviceNode = deviceList.item(nCount);
 
                 if (deviceNode.getNodeType() == Node.ELEMENT_NODE) {
+
                     if (deviceNode.getNodeName().compareTo("device") == 0) {
                         deviceName =  xPath.compile("./name").evaluate(deviceNode);
                         deviceId = xPath.compile("./id").evaluate(deviceNode);

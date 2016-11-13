@@ -4,16 +4,25 @@ package communication;
  * Created by anders on 10/19/15.
  */
 
+import DBmanager.DBLog;
+import eventdata.RawDeviceEventData;
 import events.EventDispatcher;
 import events.EventFactory;
+import events.EventType;
 import events.TelldusEvent;
 import messages.Message;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormatter;
+import utils.Util;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedByInterruptException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Implements the telldusServer communications. Opens up one event socket, and provides
@@ -70,7 +79,9 @@ public class TelldusServer implements Runnable {
      */
     public void run() {
         while (run) {
-            System.out.println("Running...");
+
+            System.out.println("Main Loop Is Running...");
+
             if (!events.connect()) {
                 // Connection failed; wait 1s and try again until it works out.
                 try {
@@ -146,15 +157,51 @@ public class TelldusServer implements Runnable {
             //Printing the event
             //log.info("An event was received -> " +event);
             //log.info("");
-            log.info(event.getEventType() + "  --> " + event );
+            // TDRawDeviceEvent[controller=1, data=class:sensor;protocol:mandolyn;id:11;model:temperaturehumidity;temp:-4.4;humidity:24;
+
+            //log.info(event.getEventType() + "  --> " + event );
+
+            switch (event.getEventType()){
+                case RawDeviceEvent:
+                    //System.out.println(event.getEventType() + " -----> " + event);
+
+                    //Logg temp...
+                    if (Util.getSetting("logtemperature").toString().toUpperCase().compareTo("TRUE") == 0){
+
+                        RawDeviceEventData eventData = new RawDeviceEventData(event.toString());
+
+                        DBLog dblog = DBLog.getInstance();
+                        dblog.saveTemperature(eventData.getTemperatureMap());
+
+                    }
+
+
+                    break;
+
+                case ControllerEvent:
+                    //System.out.println(event.getEventType() + " -----> " + event);
+                    break;
+
+                case DeviceChangeEvent:
+                    //System.out.println(event.getEventType() + " -----> " + event);
+                    break;
+
+                case DeviceEvent:
+                    //System.out.println(event.getEventType() + " -----> " + event);
+                    break;
+
+                case SensorEvent:
+                    //System.out.println(event.getEventType() + " -----> " + event);
+                    break;
+
+                default:
+                    System.out.println("Unknown event-type!! > " + event);
+            }
 
 
 
         }
 
-
-        if(log.isDebugEnabled())
-            log.debug("Received event "+event);
 
         if(event == null)
             return false;

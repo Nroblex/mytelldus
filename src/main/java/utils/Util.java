@@ -79,16 +79,20 @@ public class Util {
             }
 
             if (properties.getProperty("schemadevice") == null){
-                properties.setProperty("schemadevice", "db/configdb.db");
+                properties.setProperty("schemadevice", "db/SchemaDevice.xml");
             }
 
-            if (properties.getProperty("devices") == null){
-                properties.setProperty("devices", "db/devices.xml");
+            if (properties.getProperty("deviceconfig") == null){
+                properties.setProperty("deviceconfig", "db/Device.xml");
             }
 
 
             if (properties.get("dbchecktimeinterval") == null){
                 properties.setProperty("dbchecktimeinterval", "10000"); //Default kollas databasen var 10 sek.
+            }
+
+            if (properties.get("logtemperature") == null){
+                properties.setProperty("logtemperature", "TRUE");
             }
 
             OutputStream os = new FileOutputStream("config/settings.properties");

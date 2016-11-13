@@ -20,8 +20,8 @@ public abstract class CommandHandler {
     private static Telldus telldus;
 
     private void ExecuteCommand(SchemaDevice device){
-        if (telldus == null)
-            telldus = Initialize.getTelldus();
+        //if (telldus == null)
+        telldus = Initialize.getTelldus();
 
         if (device.getAction().toUpperCase().compareTo("OFF") == 0){
             iLog.info("Action was 0, trying to turn off device + " + device.getDeviceID());

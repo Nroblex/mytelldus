@@ -13,7 +13,7 @@ public class TDSensorEvent extends TelldusEvent {
     private SensorValue value;
 
     public TDSensorEvent(Message msg) {
-        super("TDSensorEvent");
+        super(EventType.SensorEvent);
         sensor = new Sensor(msg);
         value = new SensorValue(msg);
     }

@@ -3,7 +3,8 @@ package scheduler;
 import DBmanager.DBManager;
 import DBmanager.Device;
 import DBmanager.SchemaDevice;
-import communication.CommandHandler;
+import communication.*;
+import communication.TelldusInterface.Controller;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
@@ -14,16 +15,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
+import java.util.*;
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by ueh093 on 11/2/15.
@@ -37,11 +30,14 @@ public class TimeParser extends CommandHandler {
     private String schemadevice = null;
     private Map<Integer, Device> dbConfiguredDevices = new HashMap<Integer, Device>();
     private Integer checkDBTimeinterval ;
-    private DBManager dbManager;
+    private static DBManager dbManager;
 
     private Integer dummyCounter = 0;
 
+    private static Telldus telldusServer;
+
     public TimeParser() {
+
 
         checkDBTimeinterval=Util.getIntSetting("dbchecktimeinterval");
 
@@ -50,11 +46,37 @@ public class TimeParser extends CommandHandler {
 
 
         timerCheckCurrentTime.scheduleAtFixedRate(timerTaskCheckCurrentTime, 1000, 1000); //startar om en sekund, kör varje sekund.
-        timerCheckdatabaseConfig.scheduleAtFixedRate(timerTaskReadDatabaseConfig, 0, checkDBTimeinterval);
+        timerCheckdatabaseConfig.scheduleAtFixedRate(timerTaskReadDatabaseConfig, 0, checkDBTimeinterval); //startar direkt, kör enl. konf.
 
-        dbManager = new DBManager();
+        dbManager = DBManager.getInstance();
 
         initDBConfiguration();
+
+        //Startar telldusserver
+
+        initTelldusServer();
+
+
+        String s = "P";
+    }
+
+    private void initTelldusServer() {
+        telldusServer = Initialize.getTelldus();
+        List<Controller> ctls = telldusServer.tdController();
+
+        for (Controller ctl : ctls){
+            System.out.println(String.format("TelldusController name = %s, TypeCode = %s" , ctl.getName(), ctl.getType().code()));
+        }
+
+        String model = telldusServer.tdGetModel(2);
+        System.out.print(model);
+
+        //int supported = telldusServer.tdMethods(2, Protocol.DeviceMethod.LEARN);
+        //System.out.print(supported);
+
+        //Protocol.DeviceMethod method = telldusServer.tdLastSentCommand(2, 0);
+        //String name = method.toString();
+        //System.out.print(name);
 
     }
 
@@ -215,8 +237,24 @@ public class TimeParser extends CommandHandler {
 
                 Integer secDiff = schemaDevice.getTimePoint().getSecondOfDay() - DateTime.now().getSecondOfDay();
 
-                Util.printMessage(String.format("Device {%s} to be executed in %s secs",
-                        String.valueOf(actualDevice.getValue().getName()), String.valueOf(secDiff)));
+                if (secDiff < 60) {
+
+                    Util.printMessage(String.format("Device {%s} to be executed {%s} in %s secs",
+                            String.valueOf(actualDevice.getValue().getName()),
+                            schemaDevice.getAction(),
+                            String.valueOf(secDiff)));
+                } else {
+
+                    Integer mins = schemaDevice.getTimePoint().getMinuteOfDay() - DateTime.now().getMinuteOfDay();
+
+
+                    Util.printMessage(String.format("Device {%s} to be executed {%s} in  %s mins timepoint will be = {%s}" ,
+                            String.valueOf(actualDevice.getValue().getName()),
+                            schemaDevice.getAction(),
+                            //String.valueOf(hours),
+                            String.valueOf(mins),
+                            schemaDevice.getTimePoint().toLocalTime().toString()));
+                }
 
             }
 

@@ -32,7 +32,7 @@ public class ParseScheduler extends CommandHandler implements Runnable{
     static Telldus telldus = Initialize.getTelldus();
 
     public ParseScheduler() {
-        dbManager = new DBManager();
+
     }
 
     public void run() {

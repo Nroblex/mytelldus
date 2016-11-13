@@ -3,19 +3,21 @@ package events;
 /**
  * Created by anders on 10/19/15.
  */
-public abstract class TelldusEvent {
+public abstract class TelldusEvent  {
 
-    protected String EventType;
+    //protected String EventType;
 
-    public TelldusEvent(String type) {
-        this.EventType = type;
+    private EventType eventType;
+
+    public TelldusEvent(EventType typeOfEvent) {
+        this.eventType = typeOfEvent;
     }
 
     public interface Listener {
 		/* Dummy base for all listeners */
     }
 
-    public String getEventType() { return EventType; }
+    public EventType getEventType() { return this.eventType; }
 
     @Override
     public String toString() {

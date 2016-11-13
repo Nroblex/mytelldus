@@ -9,16 +9,18 @@ import java.io.IOException;
 /**
  * Created by anders on 10/23/15.
  */
-public class Initialize{
+public class Initialize {
 
     private static Telldus telldus = null;
     private static Logger iLog = LogManager.getLogger(Initialize.class);
 
 
     public static Telldus getTelldus(){
+
         if (telldus == null) {
             try {
                 iLog.info("Starting up telldusinterface, listening on port " + String.valueOf(Util.getIntSetting("clientPort")));
+
                 telldus = new Telldus(
                         Util.getSetting("hostname", ""),
                         Util.getIntSetting("clientPort"),
@@ -31,6 +33,7 @@ public class Initialize{
             }
 
         }
+
         return telldus;
     }
 

@@ -4,24 +4,31 @@
     <!-- kökskontakt 5 -->
     <device deviceId="5" weekday="lördag">
         <id>100</id>
-        <timepoint>20:12:10</timepoint>
+        <timepoint>22:48:10</timepoint>
         <action>ON</action>
     </device>
-    <device deviceId="5" weekday='söndag'>
+    <device deviceId="5" weekday='lördag'>
         <id>101</id>
-        <timepoint>00:20:00</timepoint>
-        <action>ON</action>
+        <timepoint>23:01:30</timepoint>
+        <action>OFF</action>
     </device>
-   
+   <!-- Skriv-bordskontakt-->
     <device deviceId="2" weekday="söndag">
         <id>102</id>
-        <timepoint>18:26:00</timepoint>
+        <timepoint>11:19:29</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="2" weekday="fredag">
+        <id>102</id>
+        <timepoint>23:10:40</timepoint>
         <action>OFF</action>
     </device>
 
+    <!--måndag -->
     <device deviceId="2" weekday="söndag">
-        <id>102</id>
-        <timepoint>18:28:00</timepoint>
-        <action>ON</action>
+        <id>103</id>
+        <timepoint>00:04:33</timepoint>
+        <action>OFF</action>
     </device>
 </devices>

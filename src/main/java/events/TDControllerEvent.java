@@ -15,7 +15,8 @@ public class TDControllerEvent extends TelldusEvent {
     private String newValue;
 
     public TDControllerEvent(Message msg) {
-        super("TDControllerEvent");
+        //super("TDControllerEvent");
+        super(EventType.ControllerEvent);
         controllerId = msg.takeInt();
         changeEvent = Protocol.ChangeEvent.fromCode(msg.takeInt());
         changeType = Protocol.ChangeType.fromCode(msg.takeInt());
