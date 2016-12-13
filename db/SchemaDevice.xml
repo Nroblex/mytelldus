@@ -19,7 +19,53 @@
         <action>ON</action>
     </device>
 
-    <device deviceId="2" weekday="fredag">
+    <device deviceId="2" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:26:40</timepoint>
+        <action>OFF</action>
+    </device> 
+    <device deviceId="2" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:28:40</timepoint>
+        <action>ON</action>
+    </device> 
+    <device deviceId="2" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:40:40</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="2" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:42:40</timepoint>
+        <action>ON</action>
+    </device>    
+
+     <device deviceId="2" weekday="söndag">
+        <id>108</id>
+        <timepoint>20:30:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="2" weekday="söndag">
+        <id>108</id>
+        <timepoint>21:00:40</timepoint>
+        <action>ON</action>
+    </device>
+
+     <device deviceId="2" weekday="söndag">
+        <id>102</id>
+        <timepoint>22:46:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="2" weekday="söndag">
+        <id>102</id>
+        <timepoint>22:47:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="2" weekday="söndag">
         <id>102</id>
         <timepoint>23:10:40</timepoint>
         <action>OFF</action>
@@ -31,4 +77,15 @@
         <timepoint>00:04:33</timepoint>
         <action>OFF</action>
     </device>
+    <device deviceId="2" weekday="måndag">
+        <id>103</id>
+        <timepoint>19:30:33</timepoint>
+        <action>ON</action>
+    </device>
+    <device deviceId="2" weekday="måndag">
+        <id>103</id>
+        <timepoint>22:47:33</timepoint>
+        <action>OFF</action>
+    </device>
+
 </devices>

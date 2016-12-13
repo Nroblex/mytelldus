@@ -1,9 +1,11 @@
 package DBmanager;
 
+import eventdata.TemperatureData;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -42,6 +44,17 @@ public class DBLog extends ConnectDB {
 
         }
 
-        System.out.println("Saved temperature.");
+        //System.out.println("Saved temperature.");
+    }
+
+    public static void saveTemperatureValues(TemperatureData tempData){
+
+        if (tempData == null)
+            return;
+
+        if (tempData.getHumidity() > -25.0) {
+            System.out.println("Temperature: " + tempData.getTemperature() + " humidity: " + tempData.getHumidity());
+            DBManager.saveTemperatureValues(tempData);
+        }
     }
 }

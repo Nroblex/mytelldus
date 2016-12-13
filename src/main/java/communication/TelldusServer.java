@@ -163,6 +163,7 @@ public class TelldusServer implements Runnable {
 
             switch (event.getEventType()){
                 case RawDeviceEvent:
+
                     //System.out.println(event.getEventType() + " -----> " + event);
 
                     //Logg temp...
@@ -171,7 +172,8 @@ public class TelldusServer implements Runnable {
                         RawDeviceEventData eventData = new RawDeviceEventData(event.toString());
 
                         DBLog dblog = DBLog.getInstance();
-                        dblog.saveTemperature(eventData.getTemperatureMap());
+                        //dblog.saveTemperature(eventData.getTemperatureMap());
+                        dblog.saveTemperatureValues(eventData.getTemperatureData());
 
                     }
 
@@ -179,19 +181,19 @@ public class TelldusServer implements Runnable {
                     break;
 
                 case ControllerEvent:
-                    //System.out.println(event.getEventType() + " -----> " + event);
+                    System.out.println(event.getEventType() + " -----> " + event);
                     break;
 
                 case DeviceChangeEvent:
-                    //System.out.println(event.getEventType() + " -----> " + event);
+                    System.out.println(event.getEventType() + " -----> " + event);
                     break;
 
                 case DeviceEvent:
-                    //System.out.println(event.getEventType() + " -----> " + event);
+                    System.out.println(event.getEventType() + " -----> " + event);
                     break;
 
                 case SensorEvent:
-                    //System.out.println(event.getEventType() + " -----> " + event);
+                    System.out.println(event.getEventType() + " -----> " + event);
                     break;
 
                 default:

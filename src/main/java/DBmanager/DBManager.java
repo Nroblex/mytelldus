@@ -1,5 +1,6 @@
 package DBmanager;
 
+import eventdata.TemperatureData;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
@@ -85,4 +86,19 @@ public class DBManager extends ConnectDB {
     }
 
 
+    public static void saveTemperatureValues(TemperatureData tempData) {
+        String sql = "INSERT INTO temperature (temp, humidity, tidpunkt) VALUES(?,?,?)";
+        try{
+
+            PreparedStatement stmt = dbConnect().prepareStatement(sql);
+            stmt.setDouble(1, tempData.getTemperature());
+            stmt.setInt(2, tempData.getHumidity());
+            stmt.setTimestamp(3, new Timestamp(tempData.getDateTime().getMillis()));
+
+            stmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -15,7 +15,11 @@ public class RawDeviceEventData {
     private String protocolName ;
     private double temperatureValue ;
     private DateTime logCreatedAt;
+    private Integer humidity = 0;
+
     private HashMap<Double,DateTime> temperatureMap = new HashMap<>();
+    private TemperatureData temperatureData=null;
+
 
     public RawDeviceEventData(String rawDeviceEvent){
         this.rawDeviceEventString=rawDeviceEvent;
@@ -31,14 +35,31 @@ public class RawDeviceEventData {
                     logCreatedAt = DateTime.now();
 
                     temperatureMap.put(temperatureValue, logCreatedAt);
-
+                }
+                if (val.compareTo("humidity")==0){
+                    humidity = Integer.valueOf(cont[1]);
                 }
             }
+
+
+            if (temperatureValue != 0.0 && humidity != 0) {
+
+                temperatureData = new TemperatureData();
+                temperatureData.setHumidity(humidity);
+                temperatureData.setTemperature(temperatureValue);
+                temperatureData.setDateTime(logCreatedAt);
+
+            }
+
         }
     }
 
     public HashMap<Double,DateTime> getTemperatureMap() {
         return temperatureMap;
+    }
+
+    public TemperatureData getTemperatureData(){
+        return  temperatureData;
     }
 
 }

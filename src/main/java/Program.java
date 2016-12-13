@@ -3,7 +3,7 @@ import communication.Telldus;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
 import scheduler.TimeParser;
-import se.selborn.utils.Utils;
+
 import utils.Util;
 
 import java.io.*;
@@ -20,7 +20,7 @@ public class Program {
 
     public static void main(String[] args) throws IOException {
 
-        Utils.printMessage("This is from Util-class");
+
 
         setupLog4JLogging(Util.getSetting("logSettingsPath", ""));
 
