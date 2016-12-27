@@ -2,11 +2,14 @@ import communication.Protocol;
 import communication.Telldus;
 import org.apache.log4j.*;
 import org.apache.log4j.xml.DOMConfigurator;
+import org.joda.time.DateTime;
 import scheduler.TimeParser;
 
 import utils.Util;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -28,6 +31,16 @@ public class Program {
 
         //startADevice(2, false);
         //initializeTest();
+
+
+        Long time = 1481223794737L;
+
+        Date d = new Date(time);
+
+        SimpleDateFormat dtfmt = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+        String text = dtfmt.format(d);
+        System.out.println("Datum : " + text);
+
 
 
         if (args.length>0){

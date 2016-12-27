@@ -52,7 +52,7 @@ public class DBLog extends ConnectDB {
         if (tempData == null)
             return;
 
-        if (tempData.getHumidity() > -25.0) {
+        if ( (tempData.getHumidity() > -25.0) && tempData.getTemperature() > -30) {
             System.out.println("Temperature: " + tempData.getTemperature() + " humidity: " + tempData.getHumidity());
             DBManager.saveTemperatureValues(tempData);
         }

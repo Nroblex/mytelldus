@@ -164,7 +164,7 @@ public class TelldusServer implements Runnable {
             switch (event.getEventType()){
                 case RawDeviceEvent:
 
-                    //System.out.println(event.getEventType() + " -----> " + event);
+                    System.out.println(event.getEventType() + " -----> " + event);
 
                     //Logg temp...
                     if (Util.getSetting("logtemperature").toString().toUpperCase().compareTo("TRUE") == 0){
