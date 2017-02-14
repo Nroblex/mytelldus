@@ -29,18 +29,6 @@ public class Program {
 
         iLog.info("Starting up.");
 
-        //startADevice(2, false);
-        //initializeTest();
-
-
-        Long time = 1481223794737L;
-
-        Date d = new Date(time);
-
-        SimpleDateFormat dtfmt = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
-        String text = dtfmt.format(d);
-        System.out.println("Datum : " + text);
-
 
 
         if (args.length>0){
@@ -57,9 +45,28 @@ public class Program {
         for (String s : args){
             if (s.toLowerCase().compareTo("-t")==0){
                 letUserTest();
-                return;
+                return ;
             }
+            if (s.toLowerCase().compareTo("-l") == 0){
+                printTimeValueInHuman();
+                System.exit(0);
+            }
+
         }
+
+    }
+
+    private static void printTimeValueInHuman() {
+
+        Long time = 1481223794737L;
+
+        Util.print("Enter timevalue in millisecs (LONG) : ");
+
+        Date d = new Date(time);
+
+        SimpleDateFormat dtfmt = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+        String text = dtfmt.format(d);
+        System.out.println("Datum : " + text);
 
     }
 

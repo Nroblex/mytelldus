@@ -88,4 +88,15 @@
         <action>OFF</action>
     </device>
 
+    <device deviceId="2" weekday="tisdag">
+        <id>103</id>
+        <timepoint>20:20:00</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="2" weekday="tisdag">
+        <id>103</id>
+        <timepoint>22:50:00</timepoint>
+        <action>OFF</action>
+    </device>
 </devices>
