@@ -45,6 +45,10 @@ public class Util {
         return Integer.parseInt(getSetting(key, ""));
     }
 
+    public static String getConfigFileName(){
+        return "config/settings.properties";
+    }
+
     private static void initSettings(){
 
         Properties properties = new Properties();

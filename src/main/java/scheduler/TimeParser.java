@@ -42,7 +42,9 @@ public class TimeParser extends CommandHandler {
         checkDBTimeinterval=Util.getIntSetting("dbchecktimeinterval");
 
         //Util.printMessage("Reading every: " + checkDBTimeinterval/1000 + " second");
-        iLog.info("Reading every: " + checkDBTimeinterval/1000 + " second.");
+        iLog.info("[Reading every]: " + checkDBTimeinterval/1000 + " second.");
+
+        iLog.info(String.format("[CONFIG FILE : %s]", Util.getConfigFileName()));
 
 
         timerCheckCurrentTime.scheduleAtFixedRate(timerTaskCheckCurrentTime, 1000, 1000); //startar om en sekund, kör varje sekund.
@@ -52,12 +54,8 @@ public class TimeParser extends CommandHandler {
 
         initDBConfiguration();
 
-        //Startar telldusserver
-
         initTelldusServer();
 
-
-        String s = "P";
     }
 
     private void initTelldusServer() {
@@ -88,8 +86,8 @@ public class TimeParser extends CommandHandler {
             Util.printMessage("Reading from SQLite database.");
         }
         else {
-            iLog.info("Application is running with XML database");
-            Util.printMessage("Reading from XML datafile");
+            iLog.info("Application is running with XML database: " + Util.getSetting("schemadevice"));
+            Util.printMessage("Reading from XML datafile : " + Util.getSetting("schemadevice"));
         }
     }
 

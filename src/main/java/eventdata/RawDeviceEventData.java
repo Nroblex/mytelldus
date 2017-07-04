@@ -2,6 +2,7 @@ package eventdata;
 
 import org.joda.time.DateTime;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -9,6 +10,7 @@ import java.util.HashMap;
  */
 public class RawDeviceEventData {
     //TDRawDeviceEvent[controller=1, data=class:sensor;protocol:mandolyn;id:11;model:temperaturehumidity;temp:-1.7;humidity:24;]
+    //TDRawDeviceEvent[controller=1, data=class:command;protocol:arctech;model:selflearning;house:41007334;unit:7;group:0;method:turnon;]
     private String rawDeviceEventString;
 
     private int controller ;
@@ -52,6 +54,17 @@ public class RawDeviceEventData {
             }
 
         }
+
+        if (rawDeviceEvent.contains("unit:7")){
+            for ( String data : arrData){
+                if (data.contains("method:")){
+                    String[] metod = data.split(":");
+                    String command = metod[1];
+                    System.out.println("Executing : " + command);
+                }
+            }
+        }
+
     }
 
     public HashMap<Double,DateTime> getTemperatureMap() {

@@ -30,11 +30,14 @@ public class Program {
         iLog.info("Starting up.");
 
 
+        //initializeTest();
+
+
 
         if (args.length>0){
             parseCommand(args);
         } else {
-            iLog.info("Starting timeparser!");
+            iLog.info("== Starting timeparser ==");
             new TimeParser();
         }
 
@@ -52,7 +55,23 @@ public class Program {
                 System.exit(0);
             }
 
+
+            if (s.toLowerCase().compareTo("-r")==0){
+                runloop();
+
+            }
+
         }
+
+    }
+
+    private static void runloop() {
+
+        System.out.println("Trying with device 2...");
+
+        //Är devicen av eller på?
+
+
 
     }
 
@@ -154,8 +173,16 @@ public class Program {
                 Protocol.DeviceType t = iface.tdGetDeviceType(id);
                 System.out.println(id+" : "+ name +" of EventType "+ t);
 
-                String lastSent = iface.tdLastSentValue(id);
-                System.out.println("Last sent value" + lastSent);
+                System.out.println("Model : " + iface.tdGetModel(id));
+                System.out.println("DeviceId: " + iface.tdGetDeviceId(id));
+                System.out.println("Protocol: " + iface.tdGetProtocol(id));
+
+
+
+
+                //String lastSent = iface.tdLastSentValue(id);
+                //System.out.println("Last sent value" + lastSent);
+
 
 
             }

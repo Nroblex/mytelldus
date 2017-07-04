@@ -1,0 +1,410 @@
+<!-- Skriv-bordskontakt-->
+
+    <device deviceId="3" weekday="lördag">
+        <id>102</id>
+        <timepoint>11:19:39</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="lördag">
+        <id>105</id>
+        <timepoint>17:26:40</timepoint>
+        <action>OFF</action>
+    </device> 
+    <device deviceId="3" weekday="lördag">
+        <id>105</id>
+        <timepoint>17:28:50</timepoint>
+        <action>ON</action>
+    </device> 
+    <device deviceId="3" weekday="lördag">
+        <id>105</id>
+        <timepoint>17:40:20</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="lördag">
+        <id>105</id>
+        <timepoint>17:42:10</timepoint>
+        <action>ON</action>
+    </device>    
+
+     <device deviceId="3" weekday="lördag">
+        <id>108</id>
+        <timepoint>20:30:10</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="lördag">
+        <id>108</id>
+        <timepoint>21:00:20</timepoint>
+        <action>ON</action>
+    </device>
+
+     <device deviceId="3" weekday="lördag">
+        <id>102</id>
+        <timepoint>22:46:30</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="lördag">
+        <id>102</id>
+        <timepoint>22:47:50</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="lördag">
+        <id>102</id>
+        <timepoint>23:08:43</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="lördag">
+        <id>102</id>
+        <timepoint>23:09:44</timepoint>
+        <action>ON</action>
+    </device>    
+
+    <device deviceId="3" weekday="lördag">
+        <id>102</id>
+        <timepoint>23:10:45</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="söndag">
+        <id>102</id>
+        <timepoint>11:19:39</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:26:40</timepoint>
+        <action>OFF</action>
+    </device> 
+    <device deviceId="3" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:28:50</timepoint>
+        <action>ON</action>
+    </device> 
+    <device deviceId="3" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:40:20</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="söndag">
+        <id>105</id>
+        <timepoint>17:42:10</timepoint>
+        <action>ON</action>
+    </device>    
+
+     <device deviceId="3" weekday="söndag">
+        <id>108</id>
+        <timepoint>20:30:10</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="söndag">
+        <id>108</id>
+        <timepoint>21:00:20</timepoint>
+        <action>ON</action>
+    </device>
+
+     <device deviceId="3" weekday="söndag">
+        <id>102</id>
+        <timepoint>22:46:30</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="söndag">
+        <id>102</id>
+        <timepoint>22:47:50</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="söndag">
+        <id>102</id>
+        <timepoint>23:08:43</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="söndag">
+        <id>102</id>
+        <timepoint>23:09:44</timepoint>
+        <action>ON</action>
+    </device>    
+
+    <device deviceId="3" weekday="söndag">
+        <id>102</id>
+        <timepoint>23:10:45</timepoint>
+        <action>OFF</action>
+    </device>    
+
+   
+    <!--måndag -->
+    <device deviceId="3" weekday="måndag">
+        <id>103</id>
+        <timepoint>00:04:35</timepoint>
+        <action>OFF</action>
+    </device>
+    <device deviceId="3" weekday="måndag">
+        <id>103</id>
+        <timepoint>07:28:33</timepoint>
+        <action>ON</action>
+    </device>
+    <device deviceId="3" weekday="måndag">
+        <id>103</id>
+        <timepoint>07:35:33</timepoint>
+        <action>OFF</action>
+    </device>
+    <device deviceId="3" weekday="måndag">
+        <id>103</id>
+        <timepoint>19:30:33</timepoint>
+        <action>ON</action>
+    </device>
+    <device deviceId="3" weekday="måndag">
+        <id>103</id>
+        <timepoint>22:47:33</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <!--Tisdag-->
+    <device deviceId="3" weekday="tisdag">
+        <id>103</id>
+        <timepoint>18:34:00</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="tisdag">
+        <id>103</id>
+        <timepoint>18:36:00</timepoint>
+        <action>OFF</action>
+    </device>
+    <device deviceId="3" weekday="tisdag">
+        <id>103</id>
+        <timepoint>20:20:00</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="tisdag">
+        <id>103</id>
+        <timepoint>22:50:00</timepoint>
+        <action>OFF</action>
+    </device>
+
+
+    <!--onsdag-->
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>11:19:29</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>105</id>
+        <timepoint>17:26:40</timepoint>
+        <action>OFF</action>
+    </device> 
+    <device deviceId="3" weekday="onsdag">
+        <id>105</id>
+        <timepoint>17:28:40</timepoint>
+        <action>ON</action>
+    </device> 
+    <device deviceId="3" weekday="onsdag">
+        <id>105</id>
+        <timepoint>17:40:40</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="onsdag">
+        <id>105</id>
+        <timepoint>17:42:40</timepoint>
+        <action>ON</action>
+    </device>    
+
+     <device deviceId="3" weekday="onsdag">
+        <id>108</id>
+        <timepoint>20:30:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>108</id>
+        <timepoint>21:00:40</timepoint>
+        <action>ON</action>
+    </device>
+
+     <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>22:46:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>22:47:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:08:40</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:09:40</timepoint>
+        <action>ON</action>
+    </device>    
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:10:40</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:11:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:12:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:13:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:14:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+     <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:20:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="onsdag">
+        <id>102</id>
+        <timepoint>23:21:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <!--torsdag-->
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>11:19:29</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>105</id>
+        <timepoint>17:26:40</timepoint>
+        <action>OFF</action>
+    </device> 
+    <device deviceId="3" weekday="torsdag">
+        <id>105</id>
+        <timepoint>17:28:40</timepoint>
+        <action>ON</action>
+    </device> 
+    <device deviceId="3" weekday="torsdag">
+        <id>105</id>
+        <timepoint>17:40:40</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="torsdag">
+        <id>105</id>
+        <timepoint>17:42:40</timepoint>
+        <action>ON</action>
+    </device>    
+
+     <device deviceId="3" weekday="torsdag">
+        <id>108</id>
+        <timepoint>20:30:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>108</id>
+        <timepoint>21:00:40</timepoint>
+        <action>ON</action>
+    </device>
+
+     <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>22:46:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>22:47:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:08:40</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:09:40</timepoint>
+        <action>ON</action>
+    </device>    
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:10:40</timepoint>
+        <action>OFF</action>
+    </device>    
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:11:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:12:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:13:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:14:40</timepoint>
+        <action>OFF</action>
+    </device>
+
+     <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:20:40</timepoint>
+        <action>ON</action>
+    </device>
+
+    <device deviceId="3" weekday="torsdag">
+        <id>102</id>
+        <timepoint>23:21:40</timepoint>
+        <action>OFF</action>
+    </device>
+

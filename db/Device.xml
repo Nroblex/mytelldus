@@ -11,5 +11,11 @@
         <DeviceId>2</DeviceId>
         <Comment>Lampa vid Anders Skrivbord.</Comment>
     </DeviceConfig>
+    <DeviceConfig>
+        <DeviceName>Tillfällig lampa köket</DeviceName>
+        <DeviceId>3</DeviceId>
+        <Comment>På kökskarmen..</Comment>
+    </DeviceConfig>
 </Devices>
+
 
